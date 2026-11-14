@@ -7,14 +7,26 @@
   "use strict";
 
   var CONFIG = {
-    // Встроенный плеер: "auto" — включён везде, где страница открыта по http(s);
-    // "demo" — вместо плеера показывается заглушка (предпросмотр, где чужие сайты встроить нельзя);
-    // false — только ссылки на источник.
-    embed: "auto",
     standalone: false,       // true в однофайловой сборке standalone.html
     dataVersion: "2026-11-14"
   };
   if (window.QA_CONFIG) Object.keys(window.QA_CONFIG).forEach(function (k) { CONFIG[k] = window.QA_CONFIG[k]; });
+
+  /*
+   * ВЫКЛЮЧАТЕЛИ ФУНКЦИЙ. Код обеих функций остаётся в файле; чтобы вернуть функцию, замените false на true.
+   *
+   * player — кнопки «Смотреть здесь» и «Слушать здесь»: запись играет в карточке с сайта источника
+   *          (YouTube, Rutube, OK или прямая ссылка media_url). Сама запись не скачивается и не хранится.
+   * reader — кнопка «Читать здесь» и загрузка файла private_texts.json в разделе «О проекте».
+   *          Включать после письменного разрешения правообладателя (см. NOTICE.md).
+   *
+   * При false приложение показывает только ссылки на источник.
+   */
+  var FEATURES = {
+    player: true,
+    reader: false
+  };
+  if (CONFIG.features) Object.keys(CONFIG.features).forEach(function (k) { FEATURES[k] = !!CONFIG.features[k]; });
 
   /* ------------------------------------------------------------------ */
   /* Тексты интерфейса                                                    */
@@ -53,7 +65,6 @@
       readAtSource: "Читать ответ в источнике", openBook: "Открыть книгу, стр. ≈{p}", openBookNoPage: "Открыть книгу",
       listen: "Слушать в источнике", copy: "Скопировать ссылку", copied: "Ссылка скопирована", copyFail: "Не получилось скопировать. Ссылка: {u}",
       closePanel: "Закрыть", speed: "Скорость", fromTc: "с {tc}", fromStart: "с начала",
-      demoPlayer: "В этом предпросмотре плеер отключён. В приложении и на сайте запись играет прямо здесь, с нужной минуты.",
       srcLine: "Источник", openSource: "Открыть источник",
       sSource: "Источник", sWhere: "Где", sDate: "Дата", sAlso: "Также", sNote: "Пометка",
       uploaded: "опубликовано: {d}", page: "стр. ≈{p}", qNo: "вопрос ≈№{n} по порядку", qOf: "вопрос {n} из {t}", dur: "вся сессия: {d}",
@@ -78,11 +89,13 @@
       aHow: "Как это работает",
       aHowList: ["Вы пишете вопрос на русском или английском.", "Приложение сравнивает его с вопросами в базе. Текст ответа не генерируется: языковая модель в поиске не участвует.", "Вы получаете ответ из источника: видео с нужной минуты, аудио, текст сессии на официальном сайте или страницу книги."],
       aPlay: "Как смотреть, слушать и читать",
-      aPlayList: [
+      aPlayOn: [
         "Видео с YouTube, Rutube и OK открывается прямо в карточке, с минуты, где звучит вопрос. Запись идёт с сайта источника: приложение ничего не скачивает и не хранит.",
-        "Аудио играет здесь, если в базе есть прямая ссылка на файл. Иначе откроется страница источника.",
-        "Текст ответа показывается здесь только с разрешения правообладателя или во внутреннем тесте, и всегда со ссылкой на источник."
+        "Аудио играет здесь, если в базе есть прямая ссылка на файл. Иначе откроется страница источника."
       ],
+      aPlayOff: ["Видео и аудио открываются на сайте источника: кнопка ведёт сразу к нужной записи, а где известен таймкод — к нужной минуте."],
+      aReadOn: "Текст ответа показывается здесь только с разрешения правообладателя или во внутреннем тесте, и всегда со ссылкой на источник.",
+      aReadOff: "Текст ответа здесь не показывается: на это нужно разрешение правообладателя. Прочитать его можно в источнике.",
       aMarks: "Что означают пометки",
       aMarkDirect: "В базе есть такой же вопрос.",
       aMarkNear: "Точного совпадения нет, показаны самые близкие вопросы.",
@@ -136,7 +149,6 @@
       readAtSource: "Read the answer at the source", openBook: "Open the book, p. ≈{p}", openBookNoPage: "Open the book",
       listen: "Listen at the source", copy: "Copy the link", copied: "Link copied", copyFail: "Could not copy. Link: {u}",
       closePanel: "Close", speed: "Speed", fromTc: "from {tc}", fromStart: "from the start",
-      demoPlayer: "The player is switched off in this preview. In the app and on the site the recording plays right here, from the right minute.",
       srcLine: "Source", openSource: "Open the source",
       sSource: "Source", sWhere: "Where", sDate: "Date", sAlso: "See also", sNote: "Note",
       uploaded: "uploaded: {d}", page: "p. ≈{p}", qNo: "about question no. {n} in order", qOf: "question {n} of {t}", dur: "whole session: {d}",
@@ -161,11 +173,13 @@
       aHow: "How it works",
       aHowList: ["You type a question in Russian or English.", "The app compares it with the questions in the database. No answer text is generated: no language model takes part in the search.", "You get the answer from its source: a video from the right minute, an audio recording, a session transcript on the official site or a page of a book."],
       aPlay: "Watching, listening and reading",
-      aPlayList: [
+      aPlayOn: [
         "Videos from YouTube, Rutube and OK open right in the card, from the minute where the question is asked. The recording comes from the source site: the app downloads and stores nothing.",
-        "Audio plays here when the database has a direct link to the file. Otherwise the source page opens.",
-        "Answer text is shown here only with the rights holder's permission or in an internal test, and always with a link to the source."
+        "Audio plays here when the database has a direct link to the file. Otherwise the source page opens."
       ],
+      aPlayOff: ["Video and audio open on the source site: the button leads straight to the recording and, where the timecode is known, to the right minute."],
+      aReadOn: "Answer text is shown here only with the rights holder's permission or in an internal test, and always with a link to the source.",
+      aReadOff: "Answer text is not shown here: that needs the rights holder's permission. You can read it at the source.",
       aMarks: "What the labels mean",
       aMarkDirect: "The database has the same question.",
       aMarkNear: "No exact match; the closest questions are shown.",
@@ -359,6 +373,7 @@
     return ((h ? h + " " + t("hh") + " " : "") + (m ? m + " " + t("mm") : "")).trim();
   }
   function answerText(r) {
+    if (!FEATURES.reader) return null;
     if (state.priv[r.id]) return { text: state.priv[r.id], internal: true };
     if (r.answer_text && (r.rights === "granted" || r.rights === "public")) return { text: r.answer_text, internal: false };
     return null;
@@ -386,11 +401,10 @@
     if (m) return { kind: "frame", host: "OK", start: start, src: "https://ok.ru/videoembed/" + m[1] + "?autoplay=1" + (start ? "&fromTime=" + start : "") };
     return null;
   }
-  function embedMode() {
-    if (CONFIG.embed === false || CONFIG.embed === "off") return "off";
-    if (CONFIG.embed === "demo") return "demo";
-    try { if (location.protocol === "file:") return "off"; } catch (e) { return "off"; }
-    return "on";
+  function playerOn() {
+    if (!FEATURES.player) return false;
+    // со страницы, открытой с диска (file://), площадки не разрешают встраивать плеер
+    try { return location.protocol !== "file:"; } catch (e) { return false; }
   }
 
   function sourceLabel(r) {
@@ -405,7 +419,7 @@
 
   function actionsHtml(r) {
     var s = r.source, link = safeUrl(s.url_at_time || s.url), out = [], primary = false;
-    var m = embedMode() !== "off" ? mediaOf(r) : null;
+    var m = playerOn() ? mediaOf(r) : null;
     if (m) {
       var label = m.kind === "audio" ? t("listenHere") : (s.timecode ? t("watchHereFrom", { tc: s.timecode }) : t("watchHere"));
       out.push('<button class="btn" type="button" data-act="play" data-id="' + esc(r.id) + '" aria-expanded="false">▶ ' + esc(label) + "</button>");
@@ -480,9 +494,6 @@
   function playerHtml(r) {
     var m = mediaOf(r), s = r.source, title = esc(s.title || "");
     var where = (m.host ? m.host + ", " : "") + (s.timecode ? t("fromTc", { tc: s.timecode }) : t("fromStart"));
-    if (embedMode() === "demo") {
-      return '<div class="media"><div class="frame"><div class="poster"><span class="ring" aria-hidden="true">▶</span><p>' + esc(t("demoPlayer")) + "</p></div></div>" + barHtml(r, where) + "</div>";
-    }
     if (m.kind === "audio") {
       var rates = [1, 1.25, 1.5, 2].map(function (x) {
         return '<button type="button" data-act="rate" data-rate="' + x + '" aria-pressed="' + (x === 1) + '">' + String(x).replace(".", state.lang === "ru" ? "," : ".") + "×</button>";
@@ -690,7 +701,8 @@
     html += '<div class="view">';
     html += '<div class="block"><h1>' + esc(t("aTitle")) + '</h1><p class="lead">' + esc(t("aLead")) + "</p></div>";
     html += '<div class="panel"><h2>' + esc(t("aHow")) + '</h2><div class="prose"><ol>' + li(t("aHowList")) + "</ol></div></div>";
-    html += '<div class="panel"><h2>' + esc(t("aPlay")) + '</h2><div class="prose"><ul>' + li(t("aPlayList")) + "</ul></div></div>";
+    var playList = (playerOn() ? t("aPlayOn") : t("aPlayOff")).concat([t(FEATURES.reader ? "aReadOn" : "aReadOff")]);
+    html += '<div class="panel"><h2>' + esc(t("aPlay")) + '</h2><div class="prose"><ul>' + li(playList) + "</ul></div></div>";
     html += '<div class="panel"><h2>' + esc(t("aMarks")) + '</h2><dl class="legend">' +
       '<dt><span class="pill ok">' + esc(t("stDirect")) + "</span></dt><dd>" + esc(t("aMarkDirect")) + "</dd>" +
       '<dt><span class="pill near">' + esc(t("stNear")) + "</span></dt><dd>" + esc(t("aMarkNear")) + "</dd>" +
@@ -703,7 +715,7 @@
     html += '<div class="panel"><h2>' + esc(t("aState")) + '</h2><p class="stats">' + t("aStateP", {
       n: n,
       v: state.data.filter(function (r) { return r.verified; }).length,
-      pl: state.data.filter(function (r) { return !!mediaOf(r); }).length,
+      pl: playerOn() ? state.data.filter(function (r) { return !!mediaOf(r); }).length : 0,
       tx: state.data.filter(function (r) { return r.source.text_at_source; }).length,
       tc: state.data.filter(function (r) { return r.source.timecode; }).length,
       ver: esc(CONFIG.dataVersion)
@@ -716,10 +728,12 @@
           "<p>" + esc(state.lang === "ru" ? s.note_ru : s.note_en) + "</p></li>";
       }).join("") + "</ul></div>";
     }
-    html += '<div class="panel"><h2>' + esc(t("aInternal")) + '</h2><div class="prose"><p>' + esc(t("aInternalP")) + "</p>" +
-      (privN ? '<p class="stats">' + t("aInternalHave", { n: privN }) + "</p>" : "") + "</div>" +
-      '<div class="filebox"><input type="file" id="priv-file" accept=".json,application/json" aria-label="private_texts.json">' +
-      (privN ? '<button class="btn quiet" type="button" data-act="priv-clear">' + esc(t("aInternalClear")) + "</button>" : "") + "</div></div>";
+    if (FEATURES.reader) {
+      html += '<div class="panel"><h2>' + esc(t("aInternal")) + '</h2><div class="prose"><p>' + esc(t("aInternalP")) + "</p>" +
+        (privN ? '<p class="stats">' + t("aInternalHave", { n: privN }) + "</p>" : "") + "</div>" +
+        '<div class="filebox"><input type="file" id="priv-file" accept=".json,application/json" aria-label="private_texts.json">' +
+        (privN ? '<button class="btn quiet" type="button" data-act="priv-clear">' + esc(t("aInternalClear")) + "</button>" : "") + "</div></div>";
+    }
     html += "</div>";
     $("about").innerHTML = html;
   }

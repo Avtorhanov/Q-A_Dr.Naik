@@ -4,8 +4,9 @@
 В неё вшиты стили, скрипты и база, поэтому файл можно открыть без сайта и без сервера.
 
   python3 tools/build.py                 -> standalone.html
-  python3 tools/build.py --embed demo -o preview.html
-        (для предпросмотра, где чужие сайты встроить нельзя: вместо плеера показывается заглушка)
+  python3 tools/build.py --no-player -o preview.html
+        (для окон предпросмотра, где чужие сайты встроить нельзя: остаются только ссылки на источник)
+  python3 tools/build.py --reader        (включить читалку текста в этой сборке)
 """
 import argparse, json, pathlib, re
 
@@ -25,13 +26,21 @@ def js_json(obj):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("-o", "--out", default=str(ROOT / "standalone.html"))
-    ap.add_argument("--embed", default="auto", choices=["auto", "demo", "off"])
+    ap.add_argument("--no-player", action="store_true", help="выключить встроенный плеер в этой сборке")
+    ap.add_argument("--reader", action="store_true", help="включить читалку текста в этой сборке")
     args = ap.parse_args()
 
     html = read("index.html")
     qa = json.loads(read("data/qa.json"))
     sources = json.loads(read("data/sources.json"))
-    config = {"standalone": True, "embed": False if args.embed == "off" else args.embed}
+    config = {"standalone": True}
+    features = {}
+    if args.no_player:
+        features["player"] = False
+    if args.reader:
+        features["reader"] = True
+    if features:
+        config["features"] = features
 
     # файлы, которых рядом с одиночным файлом не будет
     html = re.sub(r'<link rel="(manifest|icon|apple-touch-icon)"[^>]*>\n', "", html)
@@ -44,7 +53,7 @@ def main():
     assert 'src="search.js"' not in html and 'src="app.js"' not in html and 'href="styles.css"' not in html
 
     pathlib.Path(args.out).write_text(html, encoding="utf-8")
-    print("%s: %d КБ, вопросов: %d, плеер: %s" % (args.out, len(html.encode("utf-8")) // 1024, len(qa), args.embed))
+    print("%s: %d КБ, вопросов: %d, выключатели: %s" % (args.out, len(html.encode("utf-8")) // 1024, len(qa), features or "как в app.js"))
 
 
 if __name__ == "__main__":

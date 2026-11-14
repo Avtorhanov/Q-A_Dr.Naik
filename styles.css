@@ -314,13 +314,6 @@ h2 { font-family: var(--display); font-weight: 700; font-size: 1.28rem; line-hei
 .media { border-radius: 12px; overflow: hidden; background: var(--sunken); border: 1px solid var(--line); box-shadow: var(--e1); }
 .media .frame { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; }
 .media .frame iframe, .media .frame video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-.media .poster {
-  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 16px; text-align: center;
-  color: #E8EDFF; font-size: .9rem; line-height: 1.4;
-  background: radial-gradient(420px 220px at 50% 40%, rgba(92, 200, 255, .22), transparent 70%), linear-gradient(180deg, #111D48, #070D22);
-}
-.media .poster .ring { width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; font-size: 1.3rem; background: rgba(255, 255, 255, .10); box-shadow: 0 0 0 1px rgba(255, 255, 255, .28), 0 0 26px rgba(92, 200, 255, .5); }
-.media .poster p { margin: 0; max-width: 34ch; }
 .media-audio { padding: 12px; display: flex; flex-direction: column; gap: 10px; }
 .media-audio audio { width: 100%; height: 44px; }
 .speeds { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; font-size: .82rem; color: var(--muted); }
