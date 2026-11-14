@@ -1,0 +1,4 @@
+// Android-обёртка: одно окно WebView, в котором работает то же веб-приложение.
+plugins {
+    id "com.android.application" version "8.5.2" apply false
+}

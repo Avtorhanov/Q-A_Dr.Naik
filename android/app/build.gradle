@@ -1,0 +1,63 @@
+plugins {
+    id "com.android.application"
+}
+
+// Веб-приложение лежит в корне репозитория. Перед сборкой оно копируется в assets/www,
+// поэтому в APK всегда попадает текущая версия страницы и базы.
+def webRoot = rootProject.projectDir.parentFile
+def webAssets = new File(projectDir, "build/web-assets")
+
+android {
+    namespace "io.github.avtorhanov.naikqa"
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "io.github.avtorhanov.naikqa"
+        minSdk 24
+        targetSdk 34
+        versionCode((System.getenv("VERSION_CODE") ?: "1").toInteger())
+        versionName(System.getenv("VERSION_NAME") ?: "2.0")
+    }
+
+    signingConfigs {
+        // Демонстрационный ключ лежит в репозитории, чтобы каждая сборка ставилась поверх предыдущей.
+        // Для публикации в магазине приложений нужен собственный закрытый ключ (см. docs/ANDROID.md).
+        demo {
+            storeFile file("../demo.keystore")
+            storePassword "naikqa-demo"
+            keyAlias "demo"
+            keyPassword "naikqa-demo"
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.demo
+        }
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.demo
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    sourceSets {
+        main {
+            assets.srcDirs += [webAssets]
+        }
+    }
+}
+
+tasks.register("copyWeb", Copy) {
+    from(webRoot) {
+        include "index.html", "styles.css", "search.js", "app.js"
+        include "data/qa.json", "data/sources.json"
+        include "icons/**"
+    }
+    into new File(webAssets, "www")
+}
+preBuild.dependsOn "copyWeb"

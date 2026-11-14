@@ -1,0 +1,101 @@
+[
+ {
+  "id": "zakirnaik-com",
+  "status": "partial",
+  "url": "https://zakirnaik.com/",
+  "name_ru": "zakirnaik.com — официальный сайт",
+  "name_en": "zakirnaik.com — the official site",
+  "note_ru": "Тексты сессий вопросов и ответов на английском. В базе 6 сессий в Мумбаи (2006–2009): QA-WPOL, QA-IQGW, QA-ADZ-2009-Mumbai, QA-ITMM, QA-IISFH, QA-WRI. На сайте указано: «All Rights Reserved». Ещё не обработаны: тексты лекций и дебатов, серия «Ramadhaan – A Date with Dr Zakir» (32 выпуска).",
+  "note_en": "English transcripts of question-and-answer sessions. Six Mumbai sessions (2006–2009) are indexed: QA-WPOL, QA-IQGW, QA-ADZ-2009-Mumbai, QA-ITMM, QA-IISFH, QA-WRI. The site states “All Rights Reserved”. Not processed yet: lecture and debate transcripts, and the series “Ramadhaan – A Date with Dr Zakir” (32 episodes)."
+ },
+ {
+  "id": "prizyv-dawah",
+  "status": "partial",
+  "url": "https://www.youtube.com/playlist?list=PLvvSgBR8W0RT7B9Yx7eSilPrQudan_VWP",
+  "name_ru": "«Призыв Dawah» — ответы с русской озвучкой (YouTube)",
+  "name_en": "Призыв Dawah — answers with Russian voice-over (YouTube)",
+  "note_ru": "Канал переводит ответы на русский: один ролик — один вопрос. В плейлисте «Закир Найк» 125 роликов. В базе 28 роликов этого канала и ещё 15 русских роликов, чей канал нужно уточнить при проверке. Канал: youtube.com/@prizivdawah.",
+  "note_en": "The channel dubs answers into Russian: one clip per question. Its “Закир Найк” playlist has 125 clips. Twenty-eight clips from this channel are indexed, plus 15 Russian clips whose channel still needs confirming. Channel: youtube.com/@prizivdawah."
+ },
+ {
+  "id": "book-ru",
+  "status": "used",
+  "url": "https://www.islamland.com/uploads/books/ru_islam_v_voprosakh_i_otvetakh.pdf",
+  "name_ru": "Книга «Ислам в вопросах и ответах» (русский перевод)",
+  "name_en": "The book “Ислам в вопросах и ответах” (Russian translation)",
+  "note_ru": "Русский перевод книги «Answers to Non-Muslims' Common Questions about Islam» (перевод EIRC, 2012). В базе все 20 вопросов со ссылкой на страницу PDF. Номера страниц приблизительные.",
+  "note_en": "Russian translation of “Answers to Non-Muslims' Common Questions about Islam” (translated by EIRC, 2012). All 20 questions are indexed with a link to the PDF page. Page numbers are approximate."
+ },
+ {
+  "id": "ummalife",
+  "status": "partial",
+  "url": "https://ummalife.com/movies/watch/2065",
+  "name_ru": "UmmaLife — видео на русском, местами с текстом ответа",
+  "name_en": "UmmaLife — videos in Russian, some with the text of the answer",
+  "note_ru": "На страницах роликов есть видео с русской озвучкой; на части страниц приведён текст вопроса и ответа. В базе 8 роликов.",
+  "note_en": "Clip pages carry a video with Russian voice-over; some pages also give the text of the question and answer. Eight clips are indexed."
+ },
+ {
+  "id": "doha-2016",
+  "status": "used",
+  "url": "https://www.youtube.com/watch?v=hkP-g9EcYbo",
+  "name_ru": "Лекция «Does God Exist?», Доха, 2016 (YouTube)",
+  "name_en": "Lecture “Does God Exist?”, Doha, 2016 (YouTube)",
+  "note_ru": "Лекция и 19 вопросов из зала с таймкодами. Список вопросов взят из описания на islamicity.org.",
+  "note_en": "A lecture followed by 19 audience questions with timecodes. The list of questions comes from the description at islamicity.org."
+ },
+ {
+  "id": "muslim-central",
+  "status": "partial",
+  "url": "https://podm8.com/podcasts/zakir-naik",
+  "name_ru": "Muslim Central — аудиоархив на английском",
+  "name_en": "Muslim Central — audio archive in English",
+  "note_ru": "Более 1700 коротких аудиозаписей; заголовки часто сформулированы как вопросы. На страницах muslimcentral.com есть аудио и автоматическая расшифровка с таймкодами. В базе 48 записей. Список выпусков с датами: podm8.com/podcasts/zakir-naik. Лента подкаста закрыта для автоматического чтения, поэтому прямые ссылки на аудио (media_url) добавляются вручную.",
+  "note_en": "More than 1,700 short audio recordings; titles are often phrased as questions. Pages at muslimcentral.com carry the audio and an automatic transcript with timecodes. 48 records are indexed. Episode list with dates: podm8.com/podcasts/zakir-naik. The podcast feed is closed to automated reading, so direct audio links (media_url) are added by hand."
+ },
+ {
+  "id": "ramadhaan-date",
+  "status": "partial",
+  "url": "https://muslimcentral.com/zakir-naik-a-date-with-dr-zakir-ep1",
+  "name_ru": "«Ramadhaan – A Date with Dr Zakir» — программа Peace TV, 32 выпуска",
+  "name_en": "“Ramadhaan – A Date with Dr Zakir” — a Peace TV programme, 32 episodes",
+  "note_ru": "Каждый выпуск: беседа по теме Рамадана и ответы на вопросы зрителей. В базе 6 выпусков как темы (1, 2, 3, 12, 16, 27). Следующий шаг: разобрать выпуски на отдельные вопросы с таймкодами. Тексты выпусков есть и на zakirnaik.com, видео — на islamhouse.com.",
+  "note_en": "Each episode is an interview on a Ramadan topic followed by viewers' questions. Six episodes are indexed as topics (1, 2, 3, 12, 16, 27). Next step: split the episodes into single questions with timecodes. Episode transcripts are also on zakirnaik.com, and the videos on islamhouse.com."
+ },
+ {
+  "id": "official-youtube",
+  "status": "partial",
+  "url": "https://www.youtube.com/c/Drzakirchannel/videos",
+  "name_ru": "YouTube-канал «Dr Zakir Naik» и ролики на английском",
+  "name_en": "The “Dr Zakir Naik” YouTube channel and English clips",
+  "note_ru": "Тысячи коротких роликов «один вопрос — один ответ». В базе 15 роликов на английском (часть — с других каналов; канал нужно сверить при проверке).",
+  "note_en": "Thousands of short one-question clips. Fifteen English clips are indexed (some from other channels; the channel should be confirmed during checking)."
+ },
+ {
+  "id": "ru-playlists",
+  "status": "todo",
+  "url": "https://www.youtube.com/playlist?list=PLi7YQIILCkR9YX-dw54M62ZMOvGvsDpHW",
+  "name_ru": "Другие русские плейлисты: «Доктор Закир Найк: Вопрос-Ответ», «Вопросы в Рамадан»",
+  "name_en": "Other Russian playlists: “Доктор Закир Найк: Вопрос-Ответ”, “Вопросы в Рамадан”",
+  "note_ru": "Найдены, но не обработаны. Также: плейлист «Закир Найк — вопросы и ответы» (PLg5qRfQcfj1FFv9zaFuraCxxxz79-ke-2), «Вопросы в Рамадан» (PLi7YQIILCkR9fZePt8G55qi3FVYGg51Ep), канал «Закир найк русском языке».",
+  "note_en": "Found but not processed. Also: the playlist “Закир Найк — вопросы и ответы” (PLg5qRfQcfj1FFv9zaFuraCxxxz79-ke-2), “Вопросы в Рамадан” (PLi7YQIILCkR9fZePt8G55qi3FVYGg51Ep), and the channel “Закир найк русском языке”."
+ },
+ {
+  "id": "alhidaayah",
+  "status": "todo",
+  "url": "https://alhidaayah.com/home-page/?speaker_name=dr-zakir-naik&courses_only=0",
+  "name_ru": "Al Hidaayah — официальная видеоплатформа",
+  "name_en": "Al Hidaayah — the official video platform",
+  "note_ru": "Полные сессии «Ask Dr Zakir» и лекции. Не обработано.",
+  "note_en": "Full “Ask Dr Zakir” sessions and lectures. Not processed."
+ },
+ {
+  "id": "mc-sessions",
+  "status": "todo",
+  "url": "https://muslimcentral.com/zakir-naik-dialogue-between-religions-q-and-a",
+  "name_ru": "Полные сессии вопросов и ответов в аудио (Muslim Central)",
+  "name_en": "Full question-and-answer sessions in audio (Muslim Central)",
+  "note_ru": "Например: «Dialogue Between Religions» (Эр-Рияд, 5 марта 2009), «Dawah or Destruction — Q&A», еженедельная программа «Ask». Не обработано: нужно выписать вопросы и таймкоды.",
+  "note_en": "For example: “Dialogue Between Religions” (Riyadh, 5 March 2009), “Dawah or Destruction — Q&A”, the weekly programme “Ask”. Not processed: questions and timecodes still have to be listed."
+ }
+]

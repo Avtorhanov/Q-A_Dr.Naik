@@ -1,0 +1,16 @@
+# Тексты ответов для внутреннего теста: в репозиторий не попадают (см. NOTICE.md)
+private_texts.json
+*.private.json
+
+# Android
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+*.apk
+*.aab
+
+# прочее
+.DS_Store
+node_modules/
+__pycache__/

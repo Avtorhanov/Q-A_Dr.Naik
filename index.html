@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Поиск по Q&amp;A Закира Найка</title>
+<meta name="description" content="Неофициальный указатель: вопрос пользователя — реальный ответ Закира Найка со ссылкой на источник. Search index of Zakir Naik's Q&amp;A sessions, in Russian and English.">
+<meta name="theme-color" content="#070D22">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<script>
+/* Тема ставится до отрисовки, чтобы страница не мигала. */
+(function () {
+  var s = null;
+  try { s = localStorage.getItem("qa.skin"); } catch (e) {}
+  var root = document.documentElement;
+  if (s !== "light" && s !== "navy" && s !== "emerald") {
+    var host = root.getAttribute("data-theme");
+    var dark = host ? host === "dark" : !!(window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches);
+    s = dark ? "navy" : "light";
+  }
+  root.setAttribute("data-skin", s);
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,500;0,700;0,800;1,500&family=Onest:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="topbar">
+    <a class="brand" href="#search">
+      <svg width="38" height="38" viewBox="0 0 64 64" aria-hidden="true">
+        <rect class="i-bg" width="64" height="64" rx="15"/>
+        <path class="i-a" d="M14 15h26a6 6 0 0 1 6 6v12a6 6 0 0 1-6 6H26l-8 7v-7h-4a6 6 0 0 1-6-6V21a6 6 0 0 1 6-6z"/>
+        <path class="i-b" d="M30 29h20a5 5 0 0 1 5 5v9a5 5 0 0 1-5 5h-2v6l-7-6h-11a5 5 0 0 1-5-5v-9a5 5 0 0 1 5-5z"/>
+      </svg>
+      <span><b data-i18n="brand">Вопрос — ответ</b><small data-i18n="brandSub">Закир Найк, неофициальный указатель</small></span>
+    </a>
+    <div class="controls">
+      <div class="lang" role="group" aria-label="Язык / Language">
+        <button type="button" data-lang="ru" aria-pressed="true">RU</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <div class="skin">
+        <button class="skin-btn" type="button" id="skin-btn" aria-haspopup="true" aria-expanded="false" aria-controls="skin-menu" data-i18n-aria="skinLabel" aria-label="Оформление"><i></i></button>
+        <div class="skin-menu" id="skin-menu" role="menu">
+          <button type="button" role="menuitemradio" data-skin-set="auto" aria-checked="true"><span class="sw" style="--a:#F1F3F8;--b:#070D22"></span><span data-i18n="skinAuto">Как в системе</span><span class="tick">✓</span></button>
+          <button type="button" role="menuitemradio" data-skin-set="light" aria-checked="false"><span class="sw" style="--a:#FFFFFF;--b:#2343B0"></span><span data-i18n="skinLight">Светлая</span><span class="tick">✓</span></button>
+          <button type="button" role="menuitemradio" data-skin-set="navy" aria-checked="false"><span class="sw" style="--a:#0D1634;--b:#5CC8FF"></span><span data-i18n="skinNavy">Тёмно-синяя</span><span class="tick">✓</span></button>
+          <button type="button" role="menuitemradio" data-skin-set="emerald" aria-checked="false"><span class="sw" style="--a:#0D1A15;--b:#5FE3B0"></span><span data-i18n="skinEmerald">Изумрудная</span><span class="tick">✓</span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Разделы">
+    <span class="thumb" aria-hidden="true"></span>
+    <a href="#search" data-view="search" data-i18n="tabSearch" aria-current="page">Поиск</a>
+    <a href="#catalog" data-view="catalog" data-i18n="tabCatalog">Каталог</a>
+    <a href="#about" data-view="about" data-i18n="tabAbout">О проекте</a>
+  </nav>
+
+  <main>
+    <!-- ПОИСК -->
+    <section class="view" id="view-search">
+      <div class="block">
+        <h1 data-i18n="h1">Найдите ответ Закира Найка на ваш вопрос</h1>
+        <p class="lead" data-i18n="lead">Поиск по реальным сессиям вопросов и ответов, эфирам и книге. Приложение ничего не сочиняет: оно находит такой же вопрос и показывает ответ в источнике.</p>
+      </div>
+
+      <form class="search" id="form" role="search">
+        <div class="field">
+          <input id="q" type="search" autocomplete="off" enterkeyhint="search" data-i18n-ph="placeholder" data-i18n-aria="qLabel" placeholder="Напишите вопрос…" aria-label="Ваш вопрос">
+          <button class="clear" type="button" id="clear" data-i18n-aria="clear" aria-label="Очистить" hidden>×</button>
+        </div>
+        <button class="btn go" type="submit" data-i18n="find">Найти</button>
+      </form>
+
+      <section class="results" id="out" aria-live="polite"></section>
+
+      <div id="rest" class="view">
+        <div class="block">
+          <p class="label" data-i18n="tryLabel">Например</p>
+          <div class="chips" id="examples"></div>
+        </div>
+        <div class="block">
+          <p class="label" data-i18n="topicsLabel">Темы в базе</p>
+          <div class="topics" id="topics"></div>
+        </div>
+        <p class="stats" id="stats"></p>
+      </div>
+    </section>
+
+    <!-- КАТАЛОГ -->
+    <section class="view" id="view-catalog" hidden>
+      <div class="block">
+        <h1 data-i18n="catTitle">Все вопросы в базе</h1>
+        <p class="lead" data-i18n="catLead">Вопросы сгруппированы по источникам. Нажмите на вопрос, чтобы открыть ответ.</p>
+      </div>
+      <div class="filters">
+        <label><span data-i18n="fTopic">Тема</span><select id="f-topic"></select></label>
+        <label><span data-i18n="fType">Вид источника</span><select id="f-type"></select></label>
+        <label><span data-i18n="fLang">Язык ответа</span><select id="f-lang"></select></label>
+        <label><span data-i18n="fText">Слово в вопросе</span><input id="f-text" type="search" autocomplete="off"></label>
+      </div>
+      <p class="stats" id="cat-count"></p>
+      <div class="groups" id="groups"></div>
+    </section>
+
+    <!-- О ПРОЕКТЕ -->
+    <section class="view" id="view-about" hidden>
+      <div id="about"></div>
+    </section>
+  </main>
+
+  <p class="foot" data-i18n="foot">Неофициальный проект. Не связан с Закиром Найком, IRF и Peace TV. Приложение не даёт религиозных заключений и не отвечает от себя: оно только показывает, где находится ответ. Права на материалы принадлежат их правообладателям.</p>
+</div>
+
+<noscript><p style="padding:16px">Для работы поиска нужен JavaScript. JavaScript is required.</p></noscript>
+<script src="search.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
