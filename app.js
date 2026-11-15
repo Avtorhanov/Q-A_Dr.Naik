@@ -8,7 +8,7 @@
 
   var CONFIG = {
     standalone: false,       // true в однофайловой сборке standalone.html
-    dataVersion: "2026-11-14"
+    dataVersion: "2026-11-15"
   };
   if (window.QA_CONFIG) Object.keys(window.QA_CONFIG).forEach(function (k) { CONFIG[k] = window.QA_CONFIG[k]; });
 
@@ -37,7 +37,7 @@
       brand: "Вопрос — ответ",
       brandSub: "Закир Найк, неофициальный указатель",
       tabSearch: "Поиск", tabCatalog: "Каталог", tabAbout: "О проекте",
-      skinLabel: "Оформление", skinAuto: "Как в системе", skinLight: "Светлая", skinNavy: "Тёмно-синяя", skinEmerald: "Изумрудная",
+      skinLabel: "Оформление", skinAuto: "Как в системе", skinLight: "Светлая", skinNavy: "Нави", skinForest: "Тёмная",
       h1: "Найдите ответ Закира Найка на ваш вопрос",
       lead: "Поиск по реальным сессиям вопросов и ответов, эфирам и книге. Приложение ничего не сочиняет: оно находит такой же вопрос и показывает ответ в источнике.",
       placeholder: "Напишите вопрос…", qLabel: "Ваш вопрос", clear: "Очистить", find: "Найти",
@@ -121,7 +121,7 @@
       brand: "Question & Answer",
       brandSub: "Zakir Naik, unofficial index",
       tabSearch: "Search", tabCatalog: "Catalogue", tabAbout: "About",
-      skinLabel: "Appearance", skinAuto: "Match the system", skinLight: "Light", skinNavy: "Navy", skinEmerald: "Emerald",
+      skinLabel: "Appearance", skinAuto: "Match the system", skinLight: "Light", skinNavy: "Navy", skinForest: "Dark",
       h1: "Find Zakir Naik's answer to your question",
       lead: "Search across real question-and-answer sessions, broadcasts and a book. The app writes nothing itself: it finds the same question and shows the answer at its source.",
       placeholder: "Type your question…", qLabel: "Your question", clear: "Clear", find: "Search",
@@ -205,7 +205,7 @@
   var TOPIC_KEYS = ["god", "quran", "jesus", "religions", "women", "halal", "worship", "peace", "afterlife", "muslims", "other"];
   var TYPE_KEYS = ["video", "transcript", "book", "audio_clip", "lecture"];
   var VIEWS = ["search", "catalog", "about"];
-  var SKINS = ["light", "navy", "emerald"];
+  var SKINS = ["forest", "navy", "light"];
 
   var state = {
     lang: "ru", view: "search", query: "", skin: "auto",
@@ -272,7 +272,7 @@
     }
     function onEnd(ev) { if (ev.target === el && ev.propertyName === "grid-template-rows") go(); }
     el.addEventListener("transitionend", onEnd);
-    setTimeout(go, 560);
+    setTimeout(go, 320);
   }
   function wrapReveal(html) { return '<div class="reveal"><div class="reveal-in">' + html + "</div></div>"; }
   function expand(el) {
@@ -297,12 +297,12 @@
     if (!d.open) {
       d.open = true;
       h = body.scrollHeight;
-      a = body.animate([{ height: "0px", opacity: 0 }, { height: h + "px", opacity: 1 }], { duration: Math.min(520, 240 + h * 0.2), easing: ease });
+      a = body.animate([{ height: "0px", opacity: 0 }, { height: h + "px", opacity: 1 }], { duration: Math.min(280, 160 + h * 0.08), easing: ease });
       a.onfinish = a.oncancel = release;
     } else {
       h = body.scrollHeight;
       d.classList.add("closing");
-      a = body.animate([{ height: h + "px", opacity: 1 }, { height: "0px", opacity: 0 }], { duration: Math.min(460, 200 + h * 0.15), easing: ease });
+      a = body.animate([{ height: h + "px", opacity: 1 }, { height: "0px", opacity: 0 }], { duration: Math.min(240, 140 + h * 0.06), easing: ease });
       a.onfinish = a.oncancel = function () { d.open = false; release(); };
     }
   }
@@ -314,7 +314,7 @@
     var host = root.getAttribute("data-theme"), dark = false;
     if (host) dark = host === "dark";
     else { try { dark = matchMedia("(prefers-color-scheme: dark)").matches; } catch (e) { /* ignore */ } }
-    return dark ? "navy" : "light";
+    return dark ? "forest" : "light";
   }
   var skinTimer = null;
   function applySkin(animate) {
@@ -322,7 +322,7 @@
     if (animate && !calm() && root.getAttribute("data-skin") !== s) {
       root.classList.add("skin-anim");
       clearTimeout(skinTimer);
-      skinTimer = setTimeout(function () { root.classList.remove("skin-anim"); }, 450);
+      skinTimer = setTimeout(function () { root.classList.remove("skin-anim"); }, 260);
     }
     root.setAttribute("data-skin", s);
     all("[data-skin-set]").forEach(function (b) { b.setAttribute("aria-checked", String(b.getAttribute("data-skin-set") === state.skin)); });
