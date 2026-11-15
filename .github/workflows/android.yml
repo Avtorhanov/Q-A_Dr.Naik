@@ -4,7 +4,7 @@ name: Android APK
 
 on:
   push:
-    branches: [main]
+    branches: [main, "claude/**"]
     paths:
       - "index.html"
       - "styles.css"
