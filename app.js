@@ -43,7 +43,7 @@
       placeholder: "Напишите вопрос…", qLabel: "Ваш вопрос", clear: "Очистить", find: "Найти",
       tryLabel: "Например", topicsLabel: "Темы в базе",
       examples: ["Почему в Исламе запрещена свинина?", "Кто создал Бога?", "Можно ли курить во время поста?", "Почему разрешено многоженство?", "Музыка — это харам?", "Можно ли пить безалкогольное пиво?"],
-      stats: "В базе <b>{n}</b> {qw}: <b>{ru}</b> с ответом на русском, <b>{en}</b> — на английском. Сверено с источником вручную: <b>{v}</b>.",
+      stats: "В базе <b>{n}</b> {qw}: <b>{ru}</b> с ответом на русском, <b>{en}</b> — на английском.",
       qForms: ["вопрос", "вопроса", "вопросов"],
       loading: "Загружаю базу вопросов…",
       loadError: "Не удалось загрузить базу вопросов (data/qa.json). Если вы открыли файл index.html прямо с устройства, откройте standalone.html или сайт проекта.",
@@ -57,19 +57,17 @@
       kind: { video: "Видео", audio_clip: "Аудио", transcript: "Текст сессии", book: "Книга", lecture: "Лекция" },
       kindShort: { video: "видео", audio_clip: "аудио", transcript: "текст", book: "книга", lecture: "лекция" },
       voRu: "русская озвучка", inRu: "на русском", inEn: "на английском",
-      unverified: "не сверено", unverifiedTip: "Запись ещё не сверена с источником вручную",
       official: "официальный сайт",
       watchHere: "Смотреть здесь", watchHereFrom: "Смотреть здесь с {tc}", listenHere: "Слушать здесь", readHere: "Читать здесь",
       openYT: "Открыть на YouTube", fromTime: "В источнике с {tc}", atSource: "В источнике",
       openVideo: "Открыть видео", watchRead: "Смотреть и читать в источнике",
-      readAtSource: "Читать ответ в источнике", openBook: "Открыть книгу, стр. ≈{p}", openBookNoPage: "Открыть книгу",
+      readAtSource: "Читать ответ в источнике", openBook: "Открыть книгу, стр. {p}", openBookNoPage: "Открыть книгу",
       listen: "Слушать в источнике", copy: "Скопировать ссылку", copied: "Ссылка скопирована", copyFail: "Не получилось скопировать. Ссылка: {u}",
       closePanel: "Закрыть", speed: "Скорость", fromTc: "с {tc}", fromStart: "с начала",
       srcLine: "Источник", openSource: "Открыть источник",
       sSource: "Источник", sWhere: "Где", sDate: "Дата", sAlso: "Также", sNote: "Пометка",
-      uploaded: "опубликовано: {d}", page: "стр. ≈{p}", qNo: "вопрос ≈№{n} по порядку", qOf: "вопрос {n} из {t}", dur: "вся сессия: {d}",
+      uploaded: "опубликовано: {d}", page: "стр. {p}", qNo: "вопрос №{n} по порядку", qOf: "вопрос {n} из {t}", dur: "вся сессия: {d}",
       hh: "ч", mm: "мин", timecode: "таймкод {tc}", clip: "отдельная запись, с начала",
-      noText: "Текст ответа здесь не показываем: на это нужно разрешение правообладателя. Полный ответ — в источнике.",
       textAtSource: "В источнике есть полный текст ответа.",
       internal: "внутренний тест",
       catTitle: "Все вопросы в базе",
@@ -100,14 +98,13 @@
       aMarkDirect: "В базе есть такой же вопрос.",
       aMarkNear: "Точного совпадения нет, показаны самые близкие вопросы.",
       aMarkNone: "Ничего похожего не найдено. Приложение не отвечает от себя.",
-      aMarkUnv: "Запись ещё не сверена с источником вручную: формулировка вопроса, таймкод или страница могут быть неточными.",
       aMarkOff: "Ссылка ведёт на официальный сайт zakirnaik.com.",
-      aText: "Почему здесь нет текста ответов",
-      aTextP: "Материалы принадлежат правообладателям; на официальном сайте указано «All Rights Reserved». Пока письменного разрешения нет, приложение хранит только формулировки вопросов и ссылки. Полный ответ вы смотрите, слушаете или читаете в самом источнике.",
+      aText: "Статус проекта",
+      aTextP: "Это неофициальный проект. Он не связан с Закиром Найком, Islamic Research Foundation и Peace TV. Права на выступления, записи и тексты принадлежат правообладателям; приложение ожидает их разрешения на использование материалов. До тех пор оно хранит только формулировки вопросов и ссылки, а сам ответ вы смотрите, слушаете или читаете в источнике.",
       aNot: "Чего приложение не делает",
       aNotList: ["Не сочиняет и не пересказывает ответы.", "Не даёт фетв и собственных религиозных суждений.", "Не представляет Закира Найка и его организации."],
       aState: "Состояние базы",
-      aStateP: "Вопросов: <b>{n}</b>. Сверено вручную: <b>{v}</b>. Играет прямо в приложении: <b>{pl}</b>. С полным текстом в источнике: <b>{tx}</b>. С точным таймкодом: <b>{tc}</b>. Версия базы: {ver}.",
+      aStateP: "Вопросов: <b>{n}</b>. Играет прямо в приложении: <b>{pl}</b>. С полным текстом в источнике: <b>{tx}</b>. С точным таймкодом: <b>{tc}</b>. Версия базы: {ver}.",
       aSources: "Источники",
       stUsed: "в базе", stPartial: "в базе частично", stTodo: "ещё не обработан",
       aInternal: "Внутренний тест: тексты ответов",
@@ -127,7 +124,7 @@
       placeholder: "Type your question…", qLabel: "Your question", clear: "Clear", find: "Search",
       tryLabel: "For example", topicsLabel: "Topics in the database",
       examples: ["Why is pork forbidden in Islam?", "Who created God?", "Does smoking break the fast?", "Why is polygamy allowed?", "Is music haram?", "Is non-alcoholic beer permitted?"],
-      stats: "<b>{n}</b> {qw} in the database: <b>{en}</b> answered in English, <b>{ru}</b> in Russian. Checked against the source by hand: <b>{v}</b>.",
+      stats: "<b>{n}</b> {qw} in the database: <b>{en}</b> answered in English, <b>{ru}</b> in Russian.",
       qForms: ["question", "questions", "questions"],
       loading: "Loading the question database…",
       loadError: "Could not load the question database (data/qa.json). If you opened index.html straight from your device, open standalone.html or the project site instead.",
@@ -141,19 +138,17 @@
       kind: { video: "Video", audio_clip: "Audio", transcript: "Session transcript", book: "Book", lecture: "Lecture" },
       kindShort: { video: "video", audio_clip: "audio", transcript: "text", book: "book", lecture: "lecture" },
       voRu: "Russian voice-over", inRu: "in Russian", inEn: "in English",
-      unverified: "unverified", unverifiedTip: "This record has not yet been checked against the source by hand",
       official: "official site",
       watchHere: "Watch here", watchHereFrom: "Watch here from {tc}", listenHere: "Listen here", readHere: "Read here",
       openYT: "Open on YouTube", fromTime: "At the source from {tc}", atSource: "At the source",
       openVideo: "Open the video", watchRead: "Watch and read at the source",
-      readAtSource: "Read the answer at the source", openBook: "Open the book, p. ≈{p}", openBookNoPage: "Open the book",
+      readAtSource: "Read the answer at the source", openBook: "Open the book, p. {p}", openBookNoPage: "Open the book",
       listen: "Listen at the source", copy: "Copy the link", copied: "Link copied", copyFail: "Could not copy. Link: {u}",
       closePanel: "Close", speed: "Speed", fromTc: "from {tc}", fromStart: "from the start",
       srcLine: "Source", openSource: "Open the source",
       sSource: "Source", sWhere: "Where", sDate: "Date", sAlso: "See also", sNote: "Note",
-      uploaded: "uploaded: {d}", page: "p. ≈{p}", qNo: "about question no. {n} in order", qOf: "question {n} of {t}", dur: "whole session: {d}",
+      uploaded: "uploaded: {d}", page: "p. {p}", qNo: "question no. {n} in order", qOf: "question {n} of {t}", dur: "whole session: {d}",
       hh: "h", mm: "min", timecode: "timecode {tc}", clip: "separate recording, from the start",
-      noText: "The answer text is not shown here: that needs the rights holder's permission. The full answer is at the source.",
       textAtSource: "The full text of the answer is available at the source.",
       internal: "internal test",
       catTitle: "All questions in the database",
@@ -184,14 +179,13 @@
       aMarkDirect: "The database has the same question.",
       aMarkNear: "No exact match; the closest questions are shown.",
       aMarkNone: "Nothing similar was found. The app does not answer on its own.",
-      aMarkUnv: "The record has not yet been checked against the source by hand: the wording, timecode or page may be inexact.",
       aMarkOff: "The link leads to the official site zakirnaik.com.",
-      aText: "Why there is no answer text here",
-      aTextP: "The materials belong to their rights holders; the official site states “All Rights Reserved”. Until written permission is given, the app stores only the wording of questions and links. You watch, listen to or read the full answer at the source itself.",
+      aText: "Project status",
+      aTextP: "This is an unofficial project, not affiliated with Zakir Naik, the Islamic Research Foundation or Peace TV. The rights to the talks, recordings and texts belong to their owners; the app is awaiting their permission to use the material. Until then it stores only the wording of questions and links, and you watch, listen to or read the answer at the source.",
       aNot: "What the app does not do",
       aNotList: ["It does not compose or paraphrase answers.", "It gives no fatwas and no religious opinions of its own.", "It does not represent Zakir Naik or his organisations."],
       aState: "State of the database",
-      aStateP: "Questions: <b>{n}</b>. Checked by hand: <b>{v}</b>. Playable inside the app: <b>{pl}</b>. With full text at the source: <b>{tx}</b>. With an exact timecode: <b>{tc}</b>. Database version: {ver}.",
+      aStateP: "Questions: <b>{n}</b>. Playable inside the app: <b>{pl}</b>. With full text at the source: <b>{tx}</b>. With an exact timecode: <b>{tc}</b>. Database version: {ver}.",
       aSources: "Sources",
       stUsed: "indexed", stPartial: "partly indexed", stTodo: "not processed yet",
       aInternal: "Internal test: answer texts",
@@ -464,7 +458,6 @@
     eb.push('<span class="kind">' + esc(t("kind")[s.type] || s.type) + "</span>");
     eb.push("<span>" + esc(langLabel(r)) + "</span>");
     if (s.official) eb.push('<span class="flag">' + esc(t("official")) + "</span>");
-    if (!r.verified) eb.push('<span class="flag warn" title="' + esc(t("unverifiedTip")) + '">' + esc(t("unverified")) + "</span>");
     if (opt.score != null) eb.push('<span class="score">' + esc(t("match", { p: Math.round(opt.score * 100) })) + "</span>");
 
     var html = '<article class="card' + (opt.top ? " top" : "") + '" data-rec="' + esc(r.id) + '">';
@@ -474,8 +467,8 @@
     if (o) html += '<p class="orig" lang="' + esc(r.question_lang || "") + '">' + esc(o) + "</p>";
     html += actionsHtml(r);
     html += '<div class="player-slot"></div>';
-    if (!answerText(r) && (opt.top || opt.note)) {
-      html += '<p class="note">' + esc(t("noText")) + (s.text_at_source ? " " + esc(t("textAtSource")) : "") + "</p>";
+    if (!answerText(r) && s.text_at_source && (opt.top || opt.note)) {
+      html += '<p class="note">' + esc(t("textAtSource")) + "</p>";
     }
     html += slipHtml(r);
     html += "</article>";
@@ -636,8 +629,7 @@
     $("stats").innerHTML = t("stats", {
       n: n, qw: plural(n, t("qForms")),
       ru: state.data.filter(function (r) { return r.answer_lang === "ru"; }).length,
-      en: state.data.filter(function (r) { return r.answer_lang === "en"; }).length,
-      v: state.data.filter(function (r) { return r.verified; }).length
+      en: state.data.filter(function (r) { return r.answer_lang === "en"; }).length
     });
   }
 
@@ -707,14 +699,12 @@
       '<dt><span class="pill ok">' + esc(t("stDirect")) + "</span></dt><dd>" + esc(t("aMarkDirect")) + "</dd>" +
       '<dt><span class="pill near">' + esc(t("stNear")) + "</span></dt><dd>" + esc(t("aMarkNear")) + "</dd>" +
       '<dt><span class="pill none">' + esc(t("stNone")) + "</span></dt><dd>" + esc(t("aMarkNone")) + "</dd>" +
-      '<dt><span class="pill near">' + esc(t("unverified")) + "</span></dt><dd>" + esc(t("aMarkUnv")) + "</dd>" +
       '<dt><span class="pill ok">' + esc(t("official")) + "</span></dt><dd>" + esc(t("aMarkOff")) + "</dd>" +
       "</dl></div>";
     html += '<div class="panel"><h2>' + esc(t("aText")) + '</h2><div class="prose"><p>' + esc(t("aTextP")) + "</p></div></div>";
     html += '<div class="panel"><h2>' + esc(t("aNot")) + '</h2><div class="prose"><ul>' + li(t("aNotList")) + "</ul></div></div>";
     html += '<div class="panel"><h2>' + esc(t("aState")) + '</h2><p class="stats">' + t("aStateP", {
       n: n,
-      v: state.data.filter(function (r) { return r.verified; }).length,
       pl: playerOn() ? state.data.filter(function (r) { return !!mediaOf(r); }).length : 0,
       tx: state.data.filter(function (r) { return r.source.text_at_source; }).length,
       tc: state.data.filter(function (r) { return r.source.timecode; }).length,

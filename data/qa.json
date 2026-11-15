@@ -6216,8 +6216,8 @@
    "date": "2021",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "religions"
@@ -6251,8 +6251,8 @@
    "date": "2021",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "muslims"
@@ -6284,8 +6284,8 @@
    "date": "2022",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "afterlife",
@@ -6319,8 +6319,8 @@
    "date": "2020",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "muslims"
@@ -6354,8 +6354,8 @@
    "date": "2021",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "jesus",
@@ -6392,8 +6392,8 @@
    "date": "2021",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "women"
@@ -6426,8 +6426,8 @@
    "date": "2018",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "В одной записи несколько вопросов подряд; место этого вопроса в записи не определено. На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "One recording holds several questions in a row; the position of this one is not determined. The source page has the audio and an automatic transcript (with recognition errors).",
+   "note_ru": "В записи несколько вопросов подряд, этот — один из них. На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The recording holds several questions in a row; this is one of them. The source page has the audio and a transcript with timecodes.",
    "also": [
     {
      "url": "https://muslimcentral.com/zakir-naik-alhamdulillaah-a-christian-lady-accepts-islam-after-her-questions-are-convincingly-answered/",
@@ -6468,8 +6468,8 @@
    "date": "2018",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "В одной записи несколько вопросов подряд; место этого вопроса в записи не определено. На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "One recording holds several questions in a row; the position of this one is not determined. The source page has the audio and an automatic transcript (with recognition errors).",
+   "note_ru": "В записи несколько вопросов подряд, этот — один из них. На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The recording holds several questions in a row; this is one of them. The source page has the audio and a transcript with timecodes.",
    "also": [
     {
      "url": "https://muslimcentral.com/zakir-naik-alhamdulillaah-a-christian-lady-accepts-islam-after-her-questions-are-convincingly-answered/",
@@ -6511,8 +6511,8 @@
    "date": "2018",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "В одной записи несколько вопросов подряд; место этого вопроса в записи не определено. На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "One recording holds several questions in a row; the position of this one is not determined. The source page has the audio and an automatic transcript (with recognition errors).",
+   "note_ru": "В записи несколько вопросов подряд, этот — один из них. На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The recording holds several questions in a row; this is one of them. The source page has the audio and a transcript with timecodes.",
    "also": [
     {
      "url": "https://muslimcentral.com/zakir-naik-alhamdulillaah-a-christian-lady-accepts-islam-after-her-questions-are-convincingly-answered/",
@@ -6555,8 +6555,8 @@
    "date": "2022",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "Формулировка вопроса восстановлена по автоматической расшифровке и требует сверки с записью. На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "The wording of the question was restored from an automatic transcript and needs checking against the recording. The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "jesus"
@@ -6590,8 +6590,8 @@
    "date": "2020",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "muslims",
@@ -6627,8 +6627,8 @@
    "date": "2024",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "halal"
@@ -6663,8 +6663,8 @@
    "date": "2022",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "halal",
@@ -6699,8 +6699,8 @@
    "date": "2021",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "halal"
@@ -6736,8 +6736,8 @@
    "date": "2021",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "halal"
@@ -6772,8 +6772,8 @@
    "date": "2021",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "halal"
@@ -6805,8 +6805,8 @@
    "date": "2021",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "В одной записи несколько вопросов подряд; место этого вопроса в записи не определено. На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "One recording holds several questions in a row; the position of this one is not determined. The source page has the audio and an automatic transcript (with recognition errors).",
+   "note_ru": "В записи несколько вопросов подряд, этот — один из них. На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The recording holds several questions in a row; this is one of them. The source page has the audio and a transcript with timecodes.",
    "also": [
     {
      "url": "https://muslimcentral.com/zakir-naik-an-atheist-debates/",
@@ -6848,8 +6848,8 @@
    "date": "2021",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "В одной записи несколько вопросов подряд; место этого вопроса в записи не определено. На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "One recording holds several questions in a row; the position of this one is not determined. The source page has the audio and an automatic transcript (with recognition errors).",
+   "note_ru": "В записи несколько вопросов подряд, этот — один из них. На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The recording holds several questions in a row; this is one of them. The source page has the audio and a transcript with timecodes.",
    "also": [
     {
      "url": "https://muslimcentral.com/zakir-naik-an-atheist-debates/",
@@ -6890,8 +6890,8 @@
    "date": "2021",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "religions",
@@ -6925,8 +6925,8 @@
    "date": "2018",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "В одной записи несколько вопросов подряд; место этого вопроса в записи не определено. На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "One recording holds several questions in a row; the position of this one is not determined. The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "В записи несколько вопросов подряд, этот — один из них. На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The recording holds several questions in a row; this is one of them. The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "god",
@@ -6961,8 +6961,8 @@
    "date": "2018",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "В одной записи несколько вопросов подряд; место этого вопроса в записи не определено. На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "One recording holds several questions in a row; the position of this one is not determined. The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "В записи несколько вопросов подряд, этот — один из них. На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The recording holds several questions in a row; this is one of them. The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "god"
@@ -6997,8 +6997,8 @@
    "date": "2018",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "В одной записи несколько вопросов подряд; место этого вопроса в записи не определено. На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "One recording holds several questions in a row; the position of this one is not determined. The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "В записи несколько вопросов подряд, этот — один из них. На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The recording holds several questions in a row; this is one of them. The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "halal"
@@ -7031,8 +7031,8 @@
    "date": "2018",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "В одной записи несколько вопросов подряд; место этого вопроса в записи не определено. На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "One recording holds several questions in a row; the position of this one is not determined. The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "В записи несколько вопросов подряд, этот — один из них. На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The recording holds several questions in a row; this is one of them. The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "god",
@@ -7066,8 +7066,8 @@
    "date": "2023",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "religions"
@@ -7100,8 +7100,8 @@
    "date": "2021",
    "date_kind": "upload",
    "text_at_source": true,
-   "note_ru": "На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "religions"
@@ -7134,8 +7134,8 @@
    "url_at_time": null,
    "date": null,
    "text_at_source": true,
-   "note_ru": "На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "muslims"
@@ -7169,8 +7169,8 @@
    "url_at_time": null,
    "date": null,
    "text_at_source": true,
-   "note_ru": "На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "muslims"
@@ -7203,8 +7203,8 @@
    "url_at_time": null,
    "date": "30.03.2024",
    "text_at_source": true,
-   "note_ru": "На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "worship"
@@ -7235,8 +7235,8 @@
    "url_at_time": null,
    "date": null,
    "text_at_source": true,
-   "note_ru": "Выпуск программы Peace TV «Ramadhaan – A Date with Dr Zakir» (ведущий Юсуф Чемберс): беседа по теме и ответы на вопросы зрителей. На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "An episode of the Peace TV programme “Ramadhaan – A Date with Dr Zakir” (host Yusuf Chambers): an interview on the topic and answers to viewers' questions. The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "Выпуск программы Peace TV «Ramadhaan – A Date with Dr Zakir» (ведущий Юсуф Чемберс): беседа по теме и ответы на вопросы зрителей. На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "An episode of the Peace TV programme “Ramadhaan – A Date with Dr Zakir” (host Yusuf Chambers): an interview on the topic and answers to viewers' questions. The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "worship"
@@ -7268,8 +7268,8 @@
    "url_at_time": null,
    "date": null,
    "text_at_source": true,
-   "note_ru": "Выпуск программы Peace TV «Ramadhaan – A Date with Dr Zakir» (ведущий Юсуф Чемберс): беседа по теме и ответы на вопросы зрителей. На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "An episode of the Peace TV programme “Ramadhaan – A Date with Dr Zakir” (host Yusuf Chambers): an interview on the topic and answers to viewers' questions. The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "Выпуск программы Peace TV «Ramadhaan – A Date with Dr Zakir» (ведущий Юсуф Чемберс): беседа по теме и ответы на вопросы зрителей. На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "An episode of the Peace TV programme “Ramadhaan – A Date with Dr Zakir” (host Yusuf Chambers): an interview on the topic and answers to viewers' questions. The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "worship"
@@ -7301,8 +7301,8 @@
    "url_at_time": null,
    "date": null,
    "text_at_source": true,
-   "note_ru": "Выпуск программы Peace TV «Ramadhaan – A Date with Dr Zakir» (ведущий Юсуф Чемберс): беседа по теме и ответы на вопросы зрителей. На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "An episode of the Peace TV programme “Ramadhaan – A Date with Dr Zakir” (host Yusuf Chambers): an interview on the topic and answers to viewers' questions. The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "Выпуск программы Peace TV «Ramadhaan – A Date with Dr Zakir» (ведущий Юсуф Чемберс): беседа по теме и ответы на вопросы зрителей. На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "An episode of the Peace TV programme “Ramadhaan – A Date with Dr Zakir” (host Yusuf Chambers): an interview on the topic and answers to viewers' questions. The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "worship"
@@ -7335,8 +7335,8 @@
    "url_at_time": null,
    "date": null,
    "text_at_source": true,
-   "note_ru": "Выпуск программы Peace TV «Ramadhaan – A Date with Dr Zakir» (ведущий Юсуф Чемберс): беседа по теме и ответы на вопросы зрителей. На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "An episode of the Peace TV programme “Ramadhaan – A Date with Dr Zakir” (host Yusuf Chambers): an interview on the topic and answers to viewers' questions. The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "Выпуск программы Peace TV «Ramadhaan – A Date with Dr Zakir» (ведущий Юсуф Чемберс): беседа по теме и ответы на вопросы зрителей. На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "An episode of the Peace TV programme “Ramadhaan – A Date with Dr Zakir” (host Yusuf Chambers): an interview on the topic and answers to viewers' questions. The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "worship"
@@ -7368,8 +7368,8 @@
    "url_at_time": null,
    "date": null,
    "text_at_source": true,
-   "note_ru": "Выпуск программы Peace TV «Ramadhaan – A Date with Dr Zakir» (ведущий Юсуф Чемберс): беседа по теме и ответы на вопросы зрителей. На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "An episode of the Peace TV programme “Ramadhaan – A Date with Dr Zakir” (host Yusuf Chambers): an interview on the topic and answers to viewers' questions. The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "Выпуск программы Peace TV «Ramadhaan – A Date with Dr Zakir» (ведущий Юсуф Чемберс): беседа по теме и ответы на вопросы зрителей. На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "An episode of the Peace TV programme “Ramadhaan – A Date with Dr Zakir” (host Yusuf Chambers): an interview on the topic and answers to viewers' questions. The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "worship",
@@ -7402,8 +7402,8 @@
    "url_at_time": null,
    "date": null,
    "text_at_source": true,
-   "note_ru": "Выпуск программы Peace TV «Ramadhaan – A Date with Dr Zakir» (ведущий Юсуф Чемберс): беседа по теме и ответы на вопросы зрителей. На странице источника есть аудио и автоматическая расшифровка (с ошибками распознавания).",
-   "note_en": "An episode of the Peace TV programme “Ramadhaan – A Date with Dr Zakir” (host Yusuf Chambers): an interview on the topic and answers to viewers' questions. The source page has the audio and an automatic transcript (with recognition errors)."
+   "note_ru": "Выпуск программы Peace TV «Ramadhaan – A Date with Dr Zakir» (ведущий Юсуф Чемберс): беседа по теме и ответы на вопросы зрителей. На странице источника есть аудио и расшифровка с таймкодами.",
+   "note_en": "An episode of the Peace TV programme “Ramadhaan – A Date with Dr Zakir” (host Yusuf Chambers): an interview on the topic and answers to viewers' questions. The source page has the audio and a transcript with timecodes."
   },
   "topics": [
    "worship"
