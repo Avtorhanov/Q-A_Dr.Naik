@@ -524,7 +524,7 @@
     slot.removeAttribute("data-kind");
     markButtons(card, null);
     var box = slot.firstChild;
-    if (instant) { slot.innerHTML = ""; return; }
+    if (instant || !box.classList || !box.classList.contains("reveal")) { slot.innerHTML = ""; return; }
     collapse(box, function () { if (box.parentNode === slot) slot.removeChild(box); });
   }
   function openPanel(card, r, kind) {
@@ -534,15 +534,32 @@
     // одновременно играет только одна запись
     if (kind === "play") all('.player-slot[data-kind="play"]').forEach(function (other) { if (other !== slot) closePanel(other.closest(".card")); });
     if (slot.firstChild) { silence(slot); slot.innerHTML = ""; }
-    slot.innerHTML = wrapReveal(kind === "play" ? playerHtml(r) : readerHtml(r));
     slot.setAttribute("data-kind", kind);
     markButtons(card, kind);
-    var box = slot.firstChild;
-    expand(box);
     if (kind === "play") {
+      // Плеер ставится сразу во всю величину, без анимации: в iOS Safari iframe, вставленный
+      // в сворачивающуюся (нулевую, обрезанную, полупрозрачную) обёртку, не прорисовывается,
+      // пока приложение не свернуть и не открыть снова.
+      slot.innerHTML = playerHtml(r);
+      void slot.offsetHeight;
       var av = slot.querySelector("audio, video");
       if (av) { try { var p = av.play(); if (p && p.catch) p.catch(function () { /* запустит пользователь */ }); } catch (e) { /* ignore */ } }
+      showPlayer(slot);
+      return;
     }
+    slot.innerHTML = wrapReveal(readerHtml(r));
+    expand(slot.firstChild);
+  }
+  // Если плеер ушёл за край экрана — докрутить, чтобы он был виден целиком
+  function showPlayer(slot) {
+    var go = function () {
+      if (!slot.isConnected || !slot.firstChild) return;
+      var b = slot.getBoundingClientRect(), vh = window.innerHeight || document.documentElement.clientHeight;
+      if (b.bottom > vh || b.top < 0) {
+        try { slot.scrollIntoView({ block: "nearest", behavior: calm() ? "auto" : "smooth" }); } catch (e) { slot.scrollIntoView(false); }
+      }
+    };
+    if (window.requestAnimationFrame) requestAnimationFrame(go); else go();
   }
 
   /* ------------------------------------------------------------------ */
