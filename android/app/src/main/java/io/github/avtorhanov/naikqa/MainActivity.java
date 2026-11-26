@@ -13,6 +13,7 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
+import android.webkit.CookieManager;
 import android.webkit.DownloadListener;
 import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
@@ -82,6 +83,10 @@ public class MainActivity extends Activity {
         s.setSupportMultipleWindows(false);
         s.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
 
+        // Встроенный плеер YouTube может хранить свои куки (согласие, настройки). Проверку «вы не бот» это не отменяет:
+        // для неё в карточке есть кнопка «Открыть в YouTube», она ведёт в приложение YouTube (openExternal).
+        CookieManager.getInstance().setAcceptCookie(true);
+        CookieManager.getInstance().setAcceptThirdPartyCookies(web, true);
         web.addJavascriptInterface(new Bridge(), "AndroidApp");
         web.setWebViewClient(new Client());
         web.setWebChromeClient(new Chrome());
@@ -99,6 +104,19 @@ public class MainActivity extends Activity {
                 @Override
                 public void run() {
                     applyBars(color, dark);
+                }
+            });
+        }
+
+        /** Открыть ссылку во внешнем приложении: ролик YouTube — в приложении YouTube. */
+        @JavascriptInterface
+        public void openExternal(final String url) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (url != null && url.startsWith("https://")) {
+                        openOutside(Uri.parse(url));
+                    }
                 }
             });
         }
@@ -285,6 +303,7 @@ public class MainActivity extends Activity {
         s.setLoadWithOverviewMode(true);
         s.setUseWideViewPort(true);
         s.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
+        CookieManager.getInstance().setAcceptThirdPartyCookies(viewerWeb, true);
         viewerWeb.setWebViewClient(new ViewerClient());
         viewerWeb.setWebChromeClient(new Chrome());
         viewerWeb.setDownloadListener(new DownloadListener() {
@@ -340,6 +359,7 @@ public class MainActivity extends Activity {
         if (fullView != null) {
             exitFullscreen();
         }
+        CookieManager.getInstance().flush();
         rootView.removeView(viewer);
         viewerWeb.stopLoading();
         viewerWeb.destroy();

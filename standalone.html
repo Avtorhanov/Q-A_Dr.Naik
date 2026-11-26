@@ -314,6 +314,17 @@ h2 { font-family: var(--display); font-size: 1.2rem; line-height: 1.25; margin: 
 .media-fail p { margin: 0; }
 .media-fail .actions { margin: 0; }
 .note.warn { color: var(--warn); border-left-color: var(--warn); }
+/* под плеером YouTube: выход, если YouTube просит войти или не играет */
+.yt-help { margin: 0; padding: 9px 12px; border-top: 1px solid var(--line); font-size: .84rem; line-height: 1.45; color: var(--muted); display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; transition: background-color .2s ease, color .2s ease; }
+.yt-help span { flex: 1 1 100%; }
+.yt-help a { font-weight: 600; display: inline-flex; align-items: center; min-height: 34px; padding: 0 10px; border: 1px solid var(--accent); border-radius: 8px; text-decoration: none; }
+.yt-help button { border: 1px solid var(--line); background: transparent; color: var(--accent); border-radius: 8px; min-height: 34px; padding: 0 10px; font: inherit; font-weight: 600; cursor: pointer; }
+.yt-help.alert { color: var(--warn); background: var(--warn-soft); }
+.yt-help.alert a { background: var(--accent); color: var(--accent-fg); }
+/* переключатель в разделе «О проекте» */
+.seg { display: inline-flex; flex-wrap: wrap; gap: 2px; border: 1px solid var(--line); border-radius: 12px; padding: 2px; background: var(--surface); margin-top: 10px; }
+.seg button { border: 0; background: transparent; cursor: pointer; border-radius: 10px; min-height: 40px; padding: 0 14px; font: inherit; font-size: .9rem; color: var(--muted); }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-fg); font-weight: 600; }
 
 /* читалка: текст ответа и строка источника */
 .reader { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
@@ -950,6 +961,13 @@ window.QA_SOURCES=[{"id":"zakirnaik-com","status":"partial","url":"https://zakir
       yt153: "YouTube не принял встроенный плеер.", ytOther: "Плеер YouTube сообщил об ошибке.",
       fileErr: "Файл на сайте источника не открылся.", slow: "Не загружается?",
       unavailable: "Ролик удалён из источника (проверено {d}).",
+      ytHelp: "YouTube просит войти или ролик не играет?", ytOpen: "Открыть в YouTube", ytAlways: "Всегда в YouTube",
+      watchInYT: "Смотреть в YouTube",
+      ytModeOn: "Ролики YouTube теперь открываются в приложении YouTube. Вернуть можно в разделе «О проекте».",
+      ytModeOff: "Ролики YouTube снова играют в карточке.",
+      aYt: "Ролики YouTube",
+      aYtP: "Надпись «Войдите в аккаунт, чтобы подтвердить, что вы не бот» в плеере — это проверка самого YouTube. Обойти её внутри встроенного плеера нельзя, а чаще всего она появляется при VPN. Тогда удобнее открывать ролики сразу в приложении YouTube, где вы уже вошли в аккаунт. Ролики с копией на Rutube или с другого сайта при этом по-прежнему играют в карточке.",
+      aYtCard: "В карточке", aYtApp: "В приложении YouTube",
       srcLine: "Источник", openSource: "Открыть источник",
       sSource: "Источник", sWhere: "Где", sDate: "Дата", sAlso: "Также", sNote: "Пометка",
       uploaded: "опубликовано: {d}", page: "стр. {p}", qNo: "вопрос №{n} по порядку", qOf: "вопрос {n} из {t}", dur: "вся сессия: {d}",
@@ -1041,6 +1059,13 @@ window.QA_SOURCES=[{"id":"zakirnaik-com","status":"partial","url":"https://zakir
       yt153: "YouTube refused the embedded player.", ytOther: "The YouTube player reported an error.",
       fileErr: "The file on the source site did not open.", slow: "Not loading?",
       unavailable: "The video has been removed from the source (checked {d}).",
+      ytHelp: "YouTube asks you to sign in, or the video won't play?", ytOpen: "Open in YouTube", ytAlways: "Always in YouTube",
+      watchInYT: "Watch on YouTube",
+      ytModeOn: "YouTube videos now open in the YouTube app. You can change this back under “About”.",
+      ytModeOff: "YouTube videos play inside the card again.",
+      aYt: "YouTube videos",
+      aYtP: "“Sign in to confirm you're not a bot” in the player is YouTube's own check. It can't be bypassed inside an embedded player, and it shows up most often over a VPN. In that case it's easier to open videos straight in the YouTube app, where you are already signed in. Videos with a copy on Rutube or another site still play inside the card.",
+      aYtCard: "In the card", aYtApp: "In the YouTube app",
       srcLine: "Source", openSource: "Open the source",
       sSource: "Source", sWhere: "Where", sDate: "Date", sAlso: "See also", sNote: "Note",
       uploaded: "uploaded: {d}", page: "p. {p}", qNo: "question no. {n} in order", qOf: "question {n} of {t}", dur: "whole session: {d}",
@@ -1101,7 +1126,8 @@ window.QA_SOURCES=[{"id":"zakirnaik-com","status":"partial","url":"https://zakir
     lang: "ru", view: "search", query: "", skin: "auto",
     data: [], sources: [], index: null, priv: {},
     cat: { topic: "all", type: "all", alang: "all", text: "" },
-    shown: 5, last: null
+    shown: 5, last: null,
+    ytApp: load("qa.yt") === "app" // ролики YouTube открывать в приложении YouTube, а не во встроенном плеере
   };
   var root = document.documentElement;
 
@@ -1331,7 +1357,25 @@ window.QA_SOURCES=[{"id":"zakirnaik-com","status":"partial","url":"https://zakir
       var c = fileOf(a.media_url, a.media_type, 0, hostName(a.url), false) || embedOf(a.url, 0);
       if (c) { c.page = a.url; c.alt = true; out.push(c); }
     });
+    if (state.ytApp) out = out.filter(function (x) { return !x.yt; });
     return out;
+  }
+  // Ссылка на ролик YouTube с нужной минуты (для приложения YouTube)
+  function ytWatchUrl(url, start) {
+    var id = ytId(url);
+    return id ? "https://www.youtube.com/watch?v=" + id + (start ? "&t=" + start + "s" : "") : null;
+  }
+  function recYtUrl(r) {
+    var s = r.source;
+    if (s.status === "unavailable") return null;
+    return ytWatchUrl(s.url, s.timecode ? secs(s.timecode) : 0);
+  }
+  // Android: ролик YouTube открывается в приложении YouTube (там пользователь уже вошёл в аккаунт)
+  function openExternal(url) {
+    try {
+      if (window.AndroidApp && typeof window.AndroidApp.openExternal === "function") { window.AndroidApp.openExternal(String(url)); return true; }
+    } catch (e) { /* ignore */ }
+    return false;
   }
   function mediaOf(r) {
     return mediaList(r)[0] || null;
@@ -1369,8 +1413,13 @@ window.QA_SOURCES=[{"id":"zakirnaik-com","status":"partial","url":"https://zakir
 
   function actionsHtml(r) {
     var s = r.source, link = safeUrl(s.url_at_time || s.url), out = [], primary = false;
-    var m = playerOn() ? mediaOf(r) : null, vk = !m && canViewer() ? viewerKind(r) : null;
-    if (m) {
+    var m = playerOn() ? mediaOf(r) : null;
+    var yt = !m && playerOn() && state.ytApp ? recYtUrl(r) : null;
+    var vk = !m && !yt && canViewer() ? viewerKind(r) : null;
+    if (yt) {
+      out.push('<a class="btn" data-act="yt-app" href="' + esc(yt) + '" target="_blank" rel="noopener">▶ ' + esc(t("watchInYT")) + " ↗</a>");
+      primary = true;
+    } else if (m) {
       var label = m.kind === "audio" ? t("listenHere") : (s.timecode && !m.alt ? t("watchHereFrom", { tc: s.timecode }) : t("watchHere"));
       out.push('<button class="btn" type="button" data-act="play" data-id="' + esc(r.id) + '" aria-expanded="false">▶ ' + esc(label) + "</button>");
       primary = true;
@@ -1383,7 +1432,7 @@ window.QA_SOURCES=[{"id":"zakirnaik-com","status":"partial","url":"https://zakir
       out.push('<button class="btn' + (primary ? " ghost" : "") + '" type="button" data-act="read" data-id="' + esc(r.id) + '" aria-expanded="false">' + esc(t("readHere")) + "</button>");
       primary = true;
     }
-    out.push('<a class="btn' + (primary ? " ghost" : "") + '" href="' + esc(link) + '" target="_blank" rel="noopener">' + esc(m || vk ? t("atSource") : sourceLabel(r)) + " ↗</a>");
+    out.push('<a class="btn' + (primary ? " ghost" : "") + '" href="' + esc(link) + '" target="_blank" rel="noopener">' + esc(m || vk || yt ? t("atSource") : sourceLabel(r)) + " ↗</a>");
     out.push('<button class="btn quiet icon" type="button" data-act="copy" data-id="' + esc(r.id) + '" aria-label="' + esc(t("copy")) + '" title="' + esc(t("copy")) + '">' +
       '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
       '<path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5"/></svg></button>');
@@ -1462,9 +1511,17 @@ window.QA_SOURCES=[{"id":"zakirnaik-com","status":"partial","url":"https://zakir
     if (m.kind === "video") {
       return '<div class="media">' + head + '<div class="frame"><video controls playsinline preload="metadata" src="' + esc(m.src) + '"></video></div>' + barHtml(r, where, m.page, more) + "</div>";
     }
+    var help = "";
+    if (m.yt) {
+      // YouTube может закрыть встроенный плеер проверкой «вы не бот»; снаружи её не видно, поэтому выход всегда под рукой
+      help = '<p class="yt-help"><span>' + esc(t("ytHelp")) + "</span>" +
+        '<a data-act="yt-app" href="' + esc(ytWatchUrl(m.src, m.start) || m.page) + '" target="_blank" rel="noopener">' + esc(t("ytOpen")) + " ↗</a>" +
+        (more ? '<button type="button" data-act="alt">' + esc(t("altCopy")) + "</button>" : "") +
+        '<button type="button" data-act="yt-mode" data-mode="app">' + esc(t("ytAlways")) + "</button></p>";
+    }
     return '<div class="media">' + head + '<div class="frame"><iframe id="qa-frame-' + (++frameSeq) + '"' + (m.yt ? ' data-yt="1"' : "") + ' src="' + esc(m.src) + '" title="' + title +
       '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>' +
-      barHtml(r, where, m.page, more) + "</div>";
+      help + barHtml(r, where, m.page, more) + "</div>";
   }
   // Ни один способ не сработал: объяснить и дать открыть страницу источника
   function failHtml(r, m, reason) {
@@ -1518,17 +1575,13 @@ window.QA_SOURCES=[{"id":"zakirnaik-com","status":"partial","url":"https://zakir
     };
     fr.addEventListener("load", function () { tries = 0; hello(); });
     hello();
-    // Плеер молчит: возможно, YouTube не открывается в этой сети. Показать подсказку, плеер не убирать.
+    // Через 10 с ролик так и не загрузился (нет длительности): проверка «вы не бот» или YouTube недоступен в этой сети.
+    // Подсказку с выходом подсветить, плеер не убирать.
     setTimeout(function () {
-      if (!fr.isConnected || fr._ytOk || slot.querySelector(".media-slow")) return;
-      var bar = slot.querySelector(".media-bar"), link = bar && bar.querySelector("a");
-      if (!bar || !link) return;
-      var alt = bar.querySelector('[data-act="alt"]');
-      bar.insertAdjacentHTML("beforebegin", '<p class="media-note media-slow">' + esc(t("slow")) + " " +
-        (alt ? '<button type="button" data-act="alt">' + esc(t("altCopy")) + "</button> " : "") +
-        (canViewer() ? '<button type="button" data-act="viewer" data-url="' + esc(safeUrl(link.href)) + '">' + esc(t("openHere")) + "</button>"
-          : '<a href="' + esc(safeUrl(link.href)) + '" target="_blank" rel="noopener">' + esc(t("atSource")) + " ↗</a>") + "</p>");
-    }, 15000);
+      if (!fr.isConnected || fr._ytDur) return;
+      var help = slot.querySelector(".yt-help");
+      if (help) help.classList.add("alert");
+    }, 10000);
   }
   window.addEventListener("message", function (ev) {
     if (!/^https:\/\/www\.youtube(-nocookie)?\.com$/.test(String(ev.origin))) return;
@@ -1538,8 +1591,11 @@ window.QA_SOURCES=[{"id":"zakirnaik-com","status":"partial","url":"https://zakir
     var fr = all("iframe[data-yt]").filter(function (f) { return f.contentWindow === ev.source; })[0];
     if (!fr) return;
     fr._ytOk = true;
-    var slow = fr.closest(".media") && fr.closest(".media").querySelector(".media-slow");
-    if (slow) slow.parentNode.removeChild(slow);
+    if (data.info && typeof data.info === "object" && (data.info.duration > 0 || (data.info.videoData && data.info.videoData.title))) {
+      fr._ytDur = true;
+      var help = fr.closest(".media") && fr.closest(".media").querySelector(".yt-help.alert");
+      if (help) help.classList.remove("alert");
+    }
     if (data.event === "onError") {
       var slot = fr.closest(".player-slot"), card = slot && slot.closest(".card");
       var r = card ? recById(card.getAttribute("data-rec")) : null;
@@ -1744,6 +1800,16 @@ window.QA_SOURCES=[{"id":"zakirnaik-com","status":"partial","url":"https://zakir
   /* ------------------------------------------------------------------ */
   /* О проекте                                                            */
   /* ------------------------------------------------------------------ */
+  function setYtMode(app) {
+    if (state.ytApp === app) return;
+    state.ytApp = app;
+    if (app) save("qa.yt", "app"); else drop("qa.yt");
+    all('.player-slot[data-kind="play"]').forEach(function (slot) { closePanel(slot.closest(".card"), true); });
+    if (state.query) runSearch(state.query, true);
+    try { renderCatalog(); } catch (e) { /* ignore */ }
+    if ($("about") && $("about").innerHTML) renderAbout();
+    toast(t(app ? "ytModeOn" : "ytModeOff"));
+  }
   function renderAbout() {
     var n = state.data.length;
     var li = function (arr) { return arr.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join(""); };
@@ -1754,6 +1820,12 @@ window.QA_SOURCES=[{"id":"zakirnaik-com","status":"partial","url":"https://zakir
     html += '<div class="panel"><h2>' + esc(t("aHow")) + '</h2><div class="prose"><ol>' + li(t("aHowList")) + "</ol></div></div>";
     var playList = (playerOn() ? t("aPlayOn") : t("aPlayOff")).concat([t(FEATURES.reader ? "aReadOn" : "aReadOff")]);
     html += '<div class="panel"><h2>' + esc(t("aPlay")) + '</h2><div class="prose"><ul>' + li(playList) + "</ul></div></div>";
+    if (playerOn()) {
+      html += '<div class="panel" id="yt-setting"><h2>' + esc(t("aYt")) + '</h2><div class="prose"><p>' + esc(t("aYtP")) + "</p></div>" +
+        '<div class="seg" role="group" aria-label="' + esc(t("aYt")) + '">' +
+        '<button type="button" data-act="yt-mode" data-mode="card" aria-pressed="' + (!state.ytApp) + '">' + esc(t("aYtCard")) + "</button>" +
+        '<button type="button" data-act="yt-mode" data-mode="app" aria-pressed="' + state.ytApp + '">' + esc(t("aYtApp")) + "</button></div></div>";
+    }
     html += '<div class="panel"><h2>' + esc(t("aMarks")) + '</h2><dl class="legend">' +
       '<dt><span class="pill ok">' + esc(t("stDirect")) + "</span></dt><dd>" + esc(t("aMarkDirect")) + "</dd>" +
       '<dt><span class="pill near">' + esc(t("stNear")) + "</span></dt><dd>" + esc(t("aMarkNear")) + "</dd>" +
@@ -1902,6 +1974,13 @@ window.QA_SOURCES=[{"id":"zakirnaik-com","status":"partial","url":"https://zakir
     else if (act === "copy" && r) copyLink(r);
     else if ((act === "play" || act === "read") && r) openPanel(el.closest(".card"), r, act);
     else if (act === "close-panel") closePanel(el.closest(".card"));
+    else if (act === "yt-app") {
+      // Android — в приложение YouTube; браузер сам откроет ссылку (на iPhone — в приложении YouTube, если оно есть)
+      if (openExternal(el.getAttribute("href"))) ev.preventDefault();
+      var yslot = el.closest(".player-slot");
+      if (yslot) silence(yslot);
+    }
+    else if (act === "yt-mode") setYtMode(el.getAttribute("data-mode") === "app");
     else if (act === "viewer") { if (!openViewer(el.getAttribute("data-url"))) window.open(el.getAttribute("data-url"), "_blank", "noopener"); }
     else if (act === "alt") {
       var aslot = el.closest(".player-slot"), acard = el.closest(".card"), ar = acard && recById(acard.getAttribute("data-rec"));
