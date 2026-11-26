@@ -69,6 +69,16 @@ def main():
             if not re.match(r"^https?://", str(a.get("url") or "")) or not a.get("label_ru") or not a.get("label_en"):
                 err("also: нужны url, label_ru и label_en")
 
+    # Дата обновления в шапке: app.js (dataVersion) и запасной текст в index.html должны совпадать
+    app_js = (ROOT / "app.js").read_text(encoding="utf-8")
+    index_html = (ROOT / "index.html").read_text(encoding="utf-8")
+    m_app = re.search(r'dataVersion:\s*"(\d{4}-\d{2}-\d{2})"', app_js)
+    m_idx = re.search(r'id="upd"><time datetime="(\d{4}-\d{2}-\d{2})"', index_html)
+    if not m_app:
+        errors.append('app.js: dataVersion должен быть датой вида "2026-11-26"')
+    elif m_idx and m_idx.group(1) != m_app.group(1):
+        warns.append("index.html: дата в шапке (%s) не совпадает с dataVersion в app.js (%s); на сайте покажется дата из app.js" % (m_idx.group(1), m_app.group(1)))
+
     for w in warns:
         print("предупреждение:", w)
     for e in errors:

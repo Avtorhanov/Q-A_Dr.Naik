@@ -3,7 +3,7 @@
  * Страница и база: сначала сеть, при её отсутствии — сохранённая копия.
  * Видео и аудио не кэшируются: они всегда идут с сайта источника.
  */
-var CACHE = "qa-v2-2026-11-21";
+var CACHE = "qa-v2-2026-11-26";
 var SHELL = ["./", "index.html", "styles.css", "search.js", "app.js", "data/qa.json", "data/sources.json", "manifest.webmanifest", "icons/icon.svg", "icons/icon-192.png"];
 
 self.addEventListener("install", function (ev) {

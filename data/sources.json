@@ -5,8 +5,8 @@
   "url": "https://zakirnaik.com/",
   "name_ru": "zakirnaik.com — официальный сайт",
   "name_en": "zakirnaik.com — the official site",
-  "note_ru": "Тексты сессий вопросов и ответов на английском. В базе 6 сессий в Мумбаи (2006–2009): QA-WPOL, QA-IQGW, QA-ADZ-2009-Mumbai, QA-ITMM, QA-IISFH, QA-WRI. На сайте указано: «All Rights Reserved». Ещё не обработаны: тексты лекций и дебатов, серия «Ramadhaan – A Date with Dr Zakir» (32 выпуска).",
-  "note_en": "English transcripts of question-and-answer sessions. Six Mumbai sessions (2006–2009) are indexed: QA-WPOL, QA-IQGW, QA-ADZ-2009-Mumbai, QA-ITMM, QA-IISFH, QA-WRI. The site states “All Rights Reserved”. Not processed yet: lecture and debate transcripts, and the series “Ramadhaan – A Date with Dr Zakir” (32 episodes)."
+  "note_ru": "Тексты сессий вопросов и ответов на английском. В базе 21 сессия, 265 вопросов: 6 сессий в Мумбаи 2006–2009 (QA-WPOL, QA-IQGW, QA-ADZ-2009-Mumbai, QA-ITMM, QA-IISFH, QA-WRI) и с 26.11.2026 ещё 15: Ченнаи 2004 и 2008 (QA-TPC, QA-COGMWR, QA-QMSCI), Мумбаи 1996, 1997 и 2009 (QA-QMSCC, QA-CGMR, QA-AQSRU), Тхане 1998 (QA-UB-1998), Мангалор 1998 (QA-SBIC-1998), Куала-Лумпур 1998 (QA-WWCI), Дубай 2005 (QA-MIWP-2005), Лондон 2005 и 2006 (QA-RMNS, QA-SKLI), Брэдфорд 2005 (QA-MAI-2005), вопросы после дебатов с Уильямом Кэмпбеллом (2000) и в Оксфордском союзе (2011). На сайте указано: «All Rights Reserved». Не обработаны: QA-TJIP (терроризм и джихад, нужна ручная проверка), тексты лекций без вопросов, серия «Ramadhaan – A Date with Dr Zakir». Страницы QA-SBHI-2004 и QA-SBHI-Mumbai повторяют первые 8 вопросов страницы QA-IQGW: что к какой сессии относится, нужно выяснить при сверке.",
+  "note_en": "English transcripts of question-and-answer sessions. 21 sessions with 265 questions are indexed: six Mumbai sessions from 2006–2009 (QA-WPOL, QA-IQGW, QA-ADZ-2009-Mumbai, QA-ITMM, QA-IISFH, QA-WRI) and, since 26 Nov 2026, fifteen more: Chennai 2004 and 2008 (QA-TPC, QA-COGMWR, QA-QMSCI), Mumbai 1996, 1997 and 2009 (QA-QMSCC, QA-CGMR, QA-AQSRU), Thane 1998 (QA-UB-1998), Mangalore 1998 (QA-SBIC-1998), Kuala Lumpur 1998 (QA-WWCI), Dubai 2005 (QA-MIWP-2005), London 2005 and 2006 (QA-RMNS, QA-SKLI), Bradford 2005 (QA-MAI-2005), and the question sessions after the debate with William Campbell (2000) and at the Oxford Union (2011). The site states “All Rights Reserved”. Not processed: QA-TJIP (terrorism and jihad, needs checking by hand), lecture transcripts without questions, and the series “Ramadhaan – A Date with Dr Zakir”. The pages QA-SBHI-2004 and QA-SBHI-Mumbai repeat the first eight questions of QA-IQGW; which session they belong to has to be settled during checking."
  },
  {
   "id": "prizyv-dawah",
@@ -14,8 +14,8 @@
   "url": "https://www.youtube.com/playlist?list=PLvvSgBR8W0RT7B9Yx7eSilPrQudan_VWP",
   "name_ru": "«Призыв Dawah» — ответы с русской озвучкой (YouTube)",
   "name_en": "Призыв Dawah — answers with Russian voice-over (YouTube)",
-  "note_ru": "Канал переводит ответы на русский: один ролик — один вопрос. В плейлисте «Закир Найк» 125 роликов. В базе 28 роликов этого канала и ещё 15 русских роликов, чей канал нужно уточнить при проверке. Канал: youtube.com/@prizivdawah.",
-  "note_en": "The channel dubs answers into Russian: one clip per question. Its “Закир Найк” playlist has 125 clips. Twenty-eight clips from this channel are indexed, plus 15 Russian clips whose channel still needs confirming. Channel: youtube.com/@prizivdawah."
+  "note_ru": "Канал переводит ответы на русский: один ролик — один вопрос. В плейлисте «Закир Найк» около 126 роликов. В базе 28 роликов этого канала, ещё 15 русских роликов, чей канал нужно уточнить, и 8 перезаливов его роликов на Rutube (Rutube играет в приложении, если YouTube открывается плохо). Канал: youtube.com/@prizivdawah. Список роликов плейлиста закрыт для автоматического чтения: остальные ролики добавляются вручную.",
+  "note_en": "The channel dubs answers into Russian: one clip per question. Its “Закир Найк” playlist has about 126 clips. Twenty-eight clips from this channel are indexed, plus 15 Russian clips whose channel still needs confirming and 8 re-uploads of its clips on Rutube (Rutube plays in the app when YouTube is slow). Channel: youtube.com/@prizivdawah. The playlist cannot be read automatically, so the remaining clips are added by hand."
  },
  {
   "id": "book-ru",
@@ -32,8 +32,8 @@
   "url": "https://ummalife.com/movies/watch/2065",
   "name_ru": "UmmaLife — видео на русском, местами с текстом ответа",
   "name_en": "UmmaLife — videos in Russian, some with the text of the answer",
-  "note_ru": "На страницах роликов есть видео с русской озвучкой; на части страниц приведён текст вопроса и ответа. В базе 8 роликов.",
-  "note_en": "Clip pages carry a video with Russian voice-over; some pages also give the text of the question and answer. Eight clips are indexed."
+  "note_ru": "На страницах роликов есть видео с русской озвучкой; на многих приведён текст вопроса и ответа. В базе 16 роликов, в том числе фрагменты программы о Рамадане.",
+  "note_en": "Clip pages carry a video with Russian voice-over; many also give the text of the question and answer. Sixteen clips are indexed, including parts of the Ramadan programme."
  },
  {
   "id": "doha-2016",
@@ -77,8 +77,8 @@
   "url": "https://www.youtube.com/playlist?list=PLi7YQIILCkR9YX-dw54M62ZMOvGvsDpHW",
   "name_ru": "Другие русские плейлисты: «Доктор Закир Найк: Вопрос-Ответ», «Вопросы в Рамадан»",
   "name_en": "Other Russian playlists: “Доктор Закир Найк: Вопрос-Ответ”, “Вопросы в Рамадан”",
-  "note_ru": "Найдены, но не обработаны. Также: плейлист «Закир Найк — вопросы и ответы» (PLg5qRfQcfj1FFv9zaFuraCxxxz79-ke-2), «Вопросы в Рамадан» (PLi7YQIILCkR9fZePt8G55qi3FVYGg51Ep), канал «Закир найк русском языке».",
-  "note_en": "Found but not processed. Also: the playlist “Закир Найк — вопросы и ответы” (PLg5qRfQcfj1FFv9zaFuraCxxxz79-ke-2), “Вопросы в Рамадан” (PLi7YQIILCkR9fZePt8G55qi3FVYGg51Ep), and the channel “Закир найк русском языке”."
+  "note_ru": "Найдены, но не обработаны. Также: плейлист «Закир Найк — вопросы и ответы» (PLg5qRfQcfj1FFv9zaFuraCxxxz79-ke-2), «Вопросы в Рамадан» (PLi7YQIILCkR9fZePt8G55qi3FVYGg51Ep), канал «Закир найк русском языке». Также найден YouTube-канал «Закир Найк RU» (с 2021 года, ролики с русской озвучкой) и канал «Призыв к Исламу» на Rutube: не обработаны.",
+  "note_en": "Found but not processed. Also: the playlist “Закир Найк — вопросы и ответы” (PLg5qRfQcfj1FFv9zaFuraCxxxz79-ke-2), “Вопросы в Рамадан” (PLi7YQIILCkR9fZePt8G55qi3FVYGg51Ep), and the channel “Закир найк русском языке”. Also found: the YouTube channel “Закир Найк RU” (since 2021, clips with Russian voice-over) and the Rutube channel “Призыв к Исламу”: not processed."
  },
  {
   "id": "alhidaayah",

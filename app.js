@@ -8,7 +8,9 @@
 
   var CONFIG = {
     standalone: false,       // true в однофайловой сборке standalone.html
-    dataVersion: "2026-11-15"
+    // Дата последнего пополнения базы (ГГГГ-ММ-ДД). Показывается в шапке и в разделе «О проекте».
+    // После каждого пополнения data/qa.json поменяйте её здесь.
+    dataVersion: "2026-11-26"
   };
   if (window.QA_CONFIG) Object.keys(window.QA_CONFIG).forEach(function (k) { CONFIG[k] = window.QA_CONFIG[k]; });
 
@@ -36,6 +38,7 @@
       title: "Поиск по Q&A Закира Найка",
       brand: "Вопрос — ответ",
       brandSub: "Закир Найк, неофициальный указатель",
+      updated: "Обновлено {d}",
       tabSearch: "Поиск", tabCatalog: "Каталог", tabAbout: "О проекте",
       skinLabel: "Оформление", skinAuto: "Как в системе", skinLight: "Светлая", skinNavy: "Нави", skinForest: "Тёмная",
       h1: "Найдите ответ Закира Найка на ваш вопрос",
@@ -117,6 +120,8 @@
       title: "Zakir Naik Q&A search",
       brand: "Question & Answer",
       brandSub: "Zakir Naik, unofficial index",
+      updated: "Updated {d}",
+      months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
       tabSearch: "Search", tabCatalog: "Catalogue", tabAbout: "About",
       skinLabel: "Appearance", skinAuto: "Match the system", skinLight: "Light", skinNavy: "Navy", skinForest: "Dark",
       h1: "Find Zakir Naik's answer to your question",
@@ -237,6 +242,21 @@
   function save(key, val) { try { localStorage.setItem(key, val); } catch (e) { /* хранилище недоступно — не страшно */ } }
   function load(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
   function drop(key) { try { localStorage.removeItem(key); } catch (e) { /* ignore */ } }
+  /* "2026-11-26" -> «26.11.2026» / "26 Nov 2026". Неверная строка возвращается как есть. */
+  function fmtDate(iso) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(iso || ""));
+    if (!m) return String(iso || "");
+    if (state.lang !== "en") return m[3] + "." + m[2] + "." + m[1];
+    var mon = I18N.en.months[parseInt(m[2], 10) - 1];
+    return mon ? parseInt(m[3], 10) + " " + mon + " " + m[1] : String(iso);
+  }
+  function renderUpdated() {
+    var el = $("upd");
+    if (!el) return;
+    var time = el.querySelector("time") || el.appendChild(document.createElement("time"));
+    time.setAttribute("datetime", CONFIG.dataVersion);
+    time.textContent = t("updated", { d: fmtDate(CONFIG.dataVersion) });
+  }
   function safeUrl(u) { return /^https?:\/\//i.test(String(u || "")) ? String(u) : "#"; }
   function calm() {
     try { return window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; }
@@ -725,7 +745,7 @@
       pl: playerOn() ? state.data.filter(function (r) { return !!mediaOf(r); }).length : 0,
       tx: state.data.filter(function (r) { return r.source.text_at_source; }).length,
       tc: state.data.filter(function (r) { return r.source.timecode; }).length,
-      ver: esc(CONFIG.dataVersion)
+      ver: esc(fmtDate(CONFIG.dataVersion))
     }) + "</p></div>";
     if (state.sources.length) {
       html += '<div class="panel"><h2>' + esc(t("aSources")) + '</h2><ul class="srclist">' + state.sources.map(function (s) {
@@ -766,6 +786,7 @@
     all("[data-i18n-ph]").forEach(function (el) { el.setAttribute("placeholder", t(el.getAttribute("data-i18n-ph"))); });
     all("[data-i18n-aria]").forEach(function (el) { el.setAttribute("aria-label", t(el.getAttribute("data-i18n-aria"))); });
     all(".lang button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === state.lang)); });
+    renderUpdated();
     if (!state.index) return;
     renderRest(); renderFilters(); renderCatalog(); renderAbout();
     runSearch(state.query, true);
