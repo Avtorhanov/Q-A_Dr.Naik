@@ -279,6 +279,15 @@ h2 { font-family: var(--display); font-size: 1.2rem; line-height: 1.25; margin: 
 .media-bar a { font-weight: 600; white-space: nowrap; }
 .media-bar .x { flex: none; width: 36px; height: 36px; border: 0; border-radius: 8px; background: transparent; color: var(--muted); cursor: pointer; font-size: 1.05rem; }
 .media-bar .x:hover { background: var(--accent-soft); color: var(--accent); }
+.media-bar .alt, .media-note button { flex: none; border: 1px solid var(--line); background: transparent; color: var(--accent); border-radius: 8px; min-height: 34px; padding: 0 10px; font: inherit; font-weight: 600; cursor: pointer; }
+/* пояснение над плеером: показана копия, плеер не отвечает */
+.media-note { margin: 0; padding: 9px 12px; font-size: .84rem; line-height: 1.45; color: var(--warn); background: var(--warn-soft); display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.media-note a { font-weight: 600; }
+/* ролик не открылся ни одним способом */
+.media-fail { padding: 12px; display: flex; flex-direction: column; gap: 10px; font-size: .9rem; line-height: 1.5; }
+.media-fail p { margin: 0; }
+.media-fail .actions { margin: 0; }
+.note.warn { color: var(--warn); border-left-color: var(--warn); }
 
 /* читалка: текст ответа и строка источника */
 .reader { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }

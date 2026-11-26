@@ -65,9 +65,17 @@ def main():
                 err("url_at_time не совпадает с timecode (ожидается t=%ds)" % secs(tc))
         if s.get("media_url") and not str(s["media_url"]).startswith("https://"):
             err("media_url должен начинаться с https://")
+        if s.get("media_type") and s["media_type"] not in ("audio", "video"):
+            err("media_type: только audio или video")
+        if s.get("status") and s["status"] != "unavailable":
+            err('status: пока допускается только "unavailable" (ролик удалён из источника)')
+        if s.get("status") and not re.match(r"^\d{4}-\d{2}-\d{2}$", str(s.get("checked") or "")):
+            err('при status нужна дата проверки checked: "ГГГГ-ММ-ДД"')
         for a in s.get("also") or []:
             if not re.match(r"^https?://", str(a.get("url") or "")) or not a.get("label_ru") or not a.get("label_en"):
                 err("also: нужны url, label_ru и label_en")
+            if a.get("media_url") and not str(a["media_url"]).startswith("https://"):
+                err("also: media_url должен начинаться с https://")
 
     # Дата обновления в шапке: app.js (dataVersion) и запасной текст в index.html должны совпадать
     app_js = (ROOT / "app.js").read_text(encoding="utf-8")

@@ -1340,7 +1340,7 @@
   "source": {
    "type": "video",
    "title": "Почему Мусульмане Отстали от Мира? Доктор Закир Найк",
-   "publisher": "YouTube",
+   "publisher": "Merhaba (YouTube)",
    "url": "https://www.youtube.com/watch?v=LpPVVr2uWFE",
    "timecode": null,
    "url_at_time": null,
@@ -1374,7 +1374,7 @@
   "source": {
    "type": "video",
    "title": "Если Ислам истина, то почему в Исламе существуют секты и течения? - Доктор Закир Найк",
-   "publisher": "YouTube",
+   "publisher": "Призыв Dawah (YouTube)",
    "url": "https://www.youtube.com/watch?v=l6k6cOI2efA",
    "timecode": null,
    "url_at_time": null,
@@ -1402,7 +1402,7 @@
   "source": {
    "type": "video",
    "title": "Прекрасный ответ Закира Найка о шиитах, которые ненавидят его! - Доктор Закир Найк",
-   "publisher": "YouTube",
+   "publisher": "Призыв Dawah (YouTube)",
    "url": "https://www.youtube.com/watch?v=s97msW5t2oM",
    "timecode": null,
    "url_at_time": null,
@@ -1427,7 +1427,7 @@
   "source": {
    "type": "video",
    "title": "ЕСЛИ, ВСЕ ЛЮДИ БРАТЬЯ И СЕСТРЫ, ТО ПОЧЕМУ МЫ ЖЕНИМСЯ И ВЫХОДИМ ЗАМУЖ? - Доктор Закир Найк",
-   "publisher": "YouTube",
+   "publisher": "Призыв Dawah (YouTube)",
    "url": "https://www.youtube.com/watch?v=HhmvGGto7GU",
    "timecode": null,
    "url_at_time": null,
@@ -1456,7 +1456,7 @@
   "source": {
    "type": "video",
    "title": "ЕСЛИ УБИЙСТВО ЖИВОГО СУЩЕСТВА ХАРАМ, ПОЧЕМУ ТОГДА МУСУЛЬМАНЕ УБИВАЮТ ЖИВОТНЫХ? - Доктор Закир Найк",
-   "publisher": "YouTube",
+   "publisher": "Призыв Dawah (YouTube)",
    "url": "https://www.youtube.com/watch?v=A2cMGLle2ik",
    "timecode": null,
    "url_at_time": null,
@@ -1486,7 +1486,7 @@
   "source": {
    "type": "video",
    "title": "ПОЧЕМУ МУСУЛЬМАН ХОРОНЯТ В ЗЕМЛЕ, А НЕ КРЕМИРУЮТ? - Доктор Закир Найк",
-   "publisher": "YouTube",
+   "publisher": "Призыв Dawah (YouTube)",
    "url": "https://www.youtube.com/watch?v=mBmEWFBZvn8",
    "timecode": null,
    "url_at_time": null,
@@ -1515,7 +1515,7 @@
   "source": {
    "type": "video",
    "title": "Кто создал Бога???",
-   "publisher": "YouTube",
+   "publisher": "Познание Ислама (YouTube)",
    "url": "https://www.youtube.com/watch?v=357UkRg2ZAU",
    "timecode": null,
    "url_at_time": null,
@@ -1543,7 +1543,7 @@
   "source": {
    "type": "video",
    "title": "КАК ДОКАЗАТЬ АТЕИСТУ, ЧТО КОРАН - СЛОВА БОГА? - Доктор Закир Найк",
-   "publisher": "YouTube",
+   "publisher": "Призыв Dawah (YouTube)",
    "url": "https://www.youtube.com/watch?v=4H_QHkhgvgY",
    "timecode": null,
    "url_at_time": null,
@@ -1576,7 +1576,15 @@
    "timecode": null,
    "url_at_time": null,
    "date": "2022",
-   "date_kind": "upload"
+   "date_kind": "upload",
+   "also": [
+    {
+     "lang": "ru",
+     "label_ru": "Копия на Rutube (перезалив)",
+     "label_en": "Copy on Rutube (re-upload)",
+     "url": "https://rutube.ru/video/f2ab1b676eb512edadb72198bff65fb9/"
+    }
+   ]
   },
   "topics": [
    "god",
@@ -1605,7 +1613,9 @@
    "timecode": null,
    "url_at_time": null,
    "date": "2023",
-   "date_kind": "upload"
+   "date_kind": "upload",
+   "status": "unavailable",
+   "checked": "2026-11-26"
   },
   "topics": [
    "women",
@@ -1826,7 +1836,9 @@
    "timecode": null,
    "url_at_time": null,
    "date": "2022",
-   "date_kind": "upload"
+   "date_kind": "upload",
+   "status": "unavailable",
+   "checked": "2026-11-26"
   },
   "topics": [
    "jesus"
@@ -1880,7 +1892,9 @@
    "timecode": null,
    "url_at_time": null,
    "date": "2021",
-   "date_kind": "upload"
+   "date_kind": "upload",
+   "status": "unavailable",
+   "checked": "2026-11-26"
   },
   "topics": [
    "jesus",
@@ -1978,7 +1992,7 @@
   "source": {
    "type": "video",
    "title": "АТЕИСТКА ЗАДАЕТ 2 ВОПРОСА ЗАКИРУ НАЙКУ! Доктор Закир Найк",
-   "publisher": "YouTube",
+   "publisher": "Призыв Dawah (YouTube)",
    "url": "https://www.youtube.com/watch?v=_QguUbghp7k",
    "timecode": null,
    "url_at_time": null,
@@ -2004,7 +2018,7 @@
   "source": {
    "type": "video",
    "title": "Парень бросает вызов и утверждает, что он бог - Доктор Закир Найк",
-   "publisher": "YouTube",
+   "publisher": "Призыв Dawah (YouTube)",
    "url": "https://www.youtube.com/watch?v=jpzCWjlOXzk",
    "timecode": null,
    "url_at_time": null,
@@ -2029,7 +2043,7 @@
   "source": {
    "type": "video",
    "title": "ИНДУС ГОВОРИТ, ЧТО ЗАКИР НАЙК НЕ СМОЖЕТ ПРИЗВАТЬ ЕГО В ИСЛАМ! - Доктор Закир Найк",
-   "publisher": "YouTube",
+   "publisher": "Призыв Dawah (YouTube)",
    "url": "https://www.youtube.com/watch?v=DC-ipwRS4hI",
    "timecode": null,
    "url_at_time": null,
@@ -2079,7 +2093,7 @@
   "source": {
    "type": "video",
    "title": "Мужчина спрашивает Закира Найка \"Тебя ненавидят все страны мира\" - Дктор Закир Найк",
-   "publisher": "YouTube",
+   "publisher": "Призыв Dawah (YouTube)",
    "url": "https://www.youtube.com/watch?v=tOWTLPWZRV0",
    "timecode": null,
    "url_at_time": null,
@@ -2162,7 +2176,7 @@
   "source": {
    "type": "video",
    "title": "Доктор Закир Найк. Можно ли совершать ид намаз дома?",
-   "publisher": "YouTube",
+   "publisher": "Ислам - религия любви, добра и мира! (YouTube)",
    "url": "https://www.youtube.com/watch?v=RtiLdzw7BRM",
    "timecode": null,
    "url_at_time": null,
@@ -2295,7 +2309,9 @@
    "url_at_time": null,
    "date": "2021",
    "date_kind": "upload",
-   "text_at_source": true
+   "text_at_source": true,
+   "media_url": "https://ummalife.com/upload/videos/2021/03/ICHeQZWp6wBz4FIyO938_05_33bb131d7e53727b86bb47badf92b978_video.mp4",
+   "media_type": "video"
   },
   "topics": [
    "god",
@@ -2326,7 +2342,9 @@
    "url_at_time": null,
    "date": "2020",
    "date_kind": "upload",
-   "text_at_source": true
+   "text_at_source": true,
+   "media_url": "https://ummalife.com/upload/videos/2021/02/U5ZFcQMdUmRstwNBAjuU_05_ef2372ff2d195654c0a8b80e5aca47f4_video.mp4",
+   "media_type": "video"
   },
   "topics": [
    "women"
@@ -2356,7 +2374,9 @@
    "url_at_time": null,
    "date": null,
    "date_kind": "upload",
-   "text_at_source": true
+   "text_at_source": true,
+   "media_url": "https://ummalife.com/upload/videos/2021/08/6CeXiKbFIpo8NA1edRHV_25_8b2849f90df208dafc7779ede7c8fd31_video_240p_converted.mp4",
+   "media_type": "video"
   },
   "topics": [
    "peace"
@@ -2385,7 +2405,9 @@
    "timecode": null,
    "url_at_time": null,
    "date": null,
-   "date_kind": "upload"
+   "date_kind": "upload",
+   "media_url": "https://ummalife.com/upload/videos/2021/02/ORKoqY793aTDT842MAhI_17_66b4d150cae58c9f1fd4c1119e421166_video.mp4",
+   "media_type": "video"
   },
   "topics": [
    "worship"
@@ -2413,7 +2435,9 @@
    "timecode": null,
    "url_at_time": null,
    "date": null,
-   "date_kind": "upload"
+   "date_kind": "upload",
+   "media_url": "https://ummalife.com/upload/videos/2021/02/UydJmjvZGwdwPCzis4u1_10_df3c7f257b1229f5cbffc15d53585abb_video.mp4",
+   "media_type": "video"
   },
   "topics": [
    "halal"
@@ -2438,7 +2462,9 @@
    "timecode": null,
    "url_at_time": null,
    "date": null,
-   "date_kind": "upload"
+   "date_kind": "upload",
+   "media_url": "https://ummalife.com/upload/videos/2021/02/CXvMNmSystJWa6P7cTOY_05_c85a1966dfa1eb4c011e87d61d266a6a_video.mp4",
+   "media_type": "video"
   },
   "topics": [
    "worship"
@@ -2465,7 +2491,9 @@
    "timecode": null,
    "url_at_time": null,
    "date": null,
-   "date_kind": "upload"
+   "date_kind": "upload",
+   "media_url": "https://ummalife.com/upload/videos/2021/02/gIk2fmUOqFI8ZPFoI15T_05_8af1841e0d3a6cb12997bc8eb278b8a0_video.mp4",
+   "media_type": "video"
   },
   "topics": [
    "worship"
@@ -2493,7 +2521,9 @@
    "timecode": null,
    "url_at_time": null,
    "date": null,
-   "date_kind": "upload"
+   "date_kind": "upload",
+   "media_url": "https://ummalife.com/upload/videos/2021/02/oO9MDK6Y1lfg6cZK7bej_05_50354557632dfa8c7498244f2fb40e61_video.mp4",
+   "media_type": "video"
   },
   "topics": [
    "quran",
@@ -2521,7 +2551,9 @@
    "timecode": null,
    "url_at_time": null,
    "date": "2020",
-   "date_kind": "upload"
+   "date_kind": "upload",
+   "status": "unavailable",
+   "checked": "2026-11-26"
   },
   "topics": [
    "religions"
@@ -5858,7 +5890,7 @@
   "source": {
    "type": "video",
    "title": "An Atheist Asks Dr Zakir that why should we Believe in God in this Age of Science and Technology",
-   "publisher": "YouTube",
+   "publisher": "Dr Zakir Naik (YouTube)",
    "url": "https://www.youtube.com/watch?v=ufTlSYyz-50",
    "timecode": null,
    "url_at_time": null,
@@ -5893,7 +5925,7 @@
   "source": {
    "type": "video",
    "title": "An Atheist asked, “Can God create a heavy rock that He Himself cannot lift?” – Dr Zakir Naik",
-   "publisher": "YouTube",
+   "publisher": "Dr Zakir Naik (YouTube)",
    "url": "https://www.youtube.com/watch?v=O2VdNwl4Z6I",
    "timecode": null,
    "url_at_time": null,
@@ -5922,7 +5954,7 @@
   "source": {
    "type": "video",
    "title": "A Muslim who left Islam Asks Dr Zakir, “If God is Uncreated, then how can we feel His existence?”",
-   "publisher": "YouTube",
+   "publisher": "Dr Zakir Naik (YouTube)",
    "url": "https://www.youtube.com/watch?v=AV3_WchuKOk",
    "timecode": null,
    "url_at_time": null,
@@ -5947,7 +5979,7 @@
   "source": {
    "type": "video",
    "title": "Scientific Proof for an Atheist on Existence of God – Dr Zakir Naik",
-   "publisher": "YouTube",
+   "publisher": "Dr Zakir Naik (YouTube)",
    "url": "https://www.youtube.com/watch?v=RuZh8Tt8v-A",
    "timecode": null,
    "url_at_time": null,
@@ -5973,7 +6005,7 @@
   "source": {
    "type": "video",
    "title": "Eating of Pork is ‘Haraam’ in Islam & Christianity | Answers by Dr Zakir Naik",
-   "publisher": "YouTube",
+   "publisher": "Dr Zakir Naik (YouTube)",
    "url": "https://www.youtube.com/watch?v=dlauUdWlNDc",
    "timecode": null,
    "url_at_time": null,
@@ -5999,7 +6031,7 @@
   "source": {
    "type": "video",
    "title": "Prohibition of eating Pork in the Bible - Dr Zakir Naik",
-   "publisher": "YouTube",
+   "publisher": "Dr Zakir Naik (YouTube)",
    "url": "https://www.youtube.com/watch?v=XnfcR56Tn7A",
    "timecode": null,
    "url_at_time": null,
@@ -6025,7 +6057,7 @@
   "source": {
    "type": "video",
    "title": "“Jesus Christ (pbuh) never claimed that he is God” - Dr Zakir Naik",
-   "publisher": "YouTube",
+   "publisher": "Dr Zakir Naik (YouTube)",
    "url": "https://www.youtube.com/watch?v=u3Z-XFq8F_w",
    "timecode": null,
    "url_at_time": null,
@@ -6051,7 +6083,7 @@
   "source": {
    "type": "video",
    "title": "Is the Trinity Scientifically proven? - Dr Zakir Naik",
-   "publisher": "YouTube",
+   "publisher": "Dr Zakir Naik (YouTube)",
    "url": "https://www.youtube.com/watch?v=CHOTLfL0agE",
    "timecode": null,
    "url_at_time": null,
@@ -6077,7 +6109,7 @@
   "source": {
    "type": "video",
    "title": "“God is imageless - but if someone still prays to ‘Idols’ will his prayers be accepted?”",
-   "publisher": "YouTube",
+   "publisher": "Dr Zakir Naik (YouTube)",
    "url": "https://www.youtube.com/watch?v=c1MWBER6JmU",
    "timecode": null,
    "url_at_time": null,
@@ -6111,7 +6143,7 @@
   "source": {
    "type": "video",
    "title": "Why doesn't Islam believe in Idol worship? Dr Zakir Naik",
-   "publisher": "YouTube",
+   "publisher": "Dr Zakir Naik (YouTube)",
    "url": "https://www.youtube.com/watch?v=p_b1olzuvvU",
    "timecode": null,
    "url_at_time": null,
@@ -6136,7 +6168,7 @@
   "source": {
    "type": "video",
    "title": "If Idol Worship is the biggest Sin Which Allah will Never Forgive, then What is the Fault of … – Dr Zakir Naik",
-   "publisher": "YouTube",
+   "publisher": "Dr Zakir Naik (YouTube)",
    "url": "https://www.youtube.com/watch?v=Omk9ToIidDk",
    "timecode": null,
    "url_at_time": null,
@@ -6163,7 +6195,7 @@
   "source": {
    "type": "video",
    "title": "If Idol worship is forbidden then why do Muslims worship Kaaba? || Dr Zakir Naik",
-   "publisher": "YouTube",
+   "publisher": "Lazy Boy (YouTube)",
    "url": "https://www.youtube.com/watch?v=AaW6D3uXEdM",
    "timecode": null,
    "url_at_time": null,
@@ -6189,7 +6221,7 @@
   "source": {
    "type": "video",
    "title": "Is it compulsory to eat meat in Islam? Are Muslim Can be vegetarian? Question To Dr. Zakir Naik.",
-   "publisher": "YouTube",
+   "publisher": "True Islamic Talks (YouTube)",
    "url": "https://www.youtube.com/watch?v=Oe-zWFX8kXg",
    "timecode": null,
    "url_at_time": null,
@@ -6214,7 +6246,7 @@
   "source": {
    "type": "video",
    "title": "Zakir Naik's Response to a Hindu: How Will Allah Resurrect Hindus Without Graves?",
-   "publisher": "YouTube",
+   "publisher": "Ham Dam (YouTube)",
    "url": "https://www.youtube.com/watch?v=SxYhxuWtkk4",
    "timecode": null,
    "url_at_time": null,
@@ -13734,7 +13766,9 @@
    "date_kind": "upload",
    "text_at_source": true,
    "note_ru": "В ответе упоминается доктор Уильям Кэмпбелл: вероятно, это вопрос из сессии после дебатов 2000 года. На странице источника есть текст вопроса и ответа на русском.",
-   "note_en": "The answer mentions Dr William Campbell, so this is probably a question from the session after the 2000 debate. The source page has the text of the question and answer in Russian."
+   "note_en": "The answer mentions Dr William Campbell, so this is probably a question from the session after the 2000 debate. The source page has the text of the question and answer in Russian.",
+   "media_url": "https://ummalife.com/upload/videos/2021/03/ZSacFw5hJOJz3OjM3mrj_26_dac10f68b7e1f1e027fc68706ad7def4_video.mp4",
+   "media_type": "video"
   },
   "topics": [
    "quran"
@@ -13767,7 +13801,9 @@
    "date_kind": "upload",
    "text_at_source": true,
    "note_ru": "На странице источника есть текст вопроса и ответа на русском.",
-   "note_en": "The source page has the text of the question and answer in Russian."
+   "note_en": "The source page has the text of the question and answer in Russian.",
+   "media_url": "https://ummalife.com/upload/videos/2021/05/OlRNhYSsrZUqvGAdKWI5_07_3e24709d21b22f7b22cc6ec4b5599f59_video.mp4",
+   "media_type": "video"
   },
   "topics": [
    "worship"
@@ -13802,7 +13838,9 @@
    "date_kind": "upload",
    "text_at_source": true,
    "note_ru": "На странице источника есть текст вопроса и ответа на русском.",
-   "note_en": "The source page has the text of the question and answer in Russian."
+   "note_en": "The source page has the text of the question and answer in Russian.",
+   "media_url": "https://ummalife.com/upload/videos/2021/04/RG6FuTThTWcevdKoo1kb_11_59d8fb68d46a1bcf35b49886a1547780_video.mp4",
+   "media_type": "video"
   },
   "topics": [
    "worship",
@@ -13837,7 +13875,9 @@
    "date_kind": "upload",
    "text_at_source": true,
    "note_ru": "На странице источника есть текст вопроса и ответа на русском.",
-   "note_en": "The source page has the text of the question and answer in Russian."
+   "note_en": "The source page has the text of the question and answer in Russian.",
+   "media_url": "https://ummalife.com/upload/videos/2021/04/kZHPQnl3m88kTRNxqSrK_10_5b13c7ac352948d5b5f6d1317de00ed3_video.mp4",
+   "media_type": "video"
   },
   "topics": [
    "worship"
@@ -13871,7 +13911,9 @@
    "date_kind": "upload",
    "text_at_source": true,
    "note_ru": "На странице источника есть текст ответа на русском.",
-   "note_en": "The source page has the text of the answer in Russian."
+   "note_en": "The source page has the text of the answer in Russian.",
+   "media_url": "https://ummalife.com/upload/videos/2021/04/vfRUvi3lL4ugd55LWQ44_12_4ebc8a00ee9303153a0e742c05f2624e_video.mp4",
+   "media_type": "video"
   },
   "topics": [
    "worship"
@@ -13905,7 +13947,9 @@
    "date_kind": "upload",
    "text_at_source": true,
    "note_ru": "На странице источника есть текст вопроса и ответа на русском.",
-   "note_en": "The source page has the text of the question and answer in Russian."
+   "note_en": "The source page has the text of the question and answer in Russian.",
+   "media_url": "https://ummalife.com/upload/videos/2021/08/j4Qu6uNNovnxcixLYKUk_30_510d5f8ad9b7e684667726afc3ccabf3_video_240p_converted.mp4",
+   "media_type": "video"
   },
   "topics": [
    "jesus",
@@ -13941,7 +13985,9 @@
    "date_kind": "upload",
    "text_at_source": true,
    "note_ru": "Ответ на несколько похожих вопросов зрителей. На странице источника есть текст вопроса и ответа на русском.",
-   "note_en": "An answer to several similar viewers' questions. The source page has the text of the question and answer in Russian."
+   "note_en": "An answer to several similar viewers' questions. The source page has the text of the question and answer in Russian.",
+   "media_url": "https://ummalife.com/upload/videos/2021/09/xw9KO22CgByUrKIdApU4_06_b4f01b23fd908965df0f7b5f53c01bcf_video_240p_converted.mp4",
+   "media_type": "video"
   },
   "topics": [
    "muslims"
@@ -13975,7 +14021,9 @@
    "date_kind": "upload",
    "text_at_source": true,
    "note_ru": "На странице источника есть текст вопроса и ответа на русском.",
-   "note_en": "The source page has the text of the question and answer in Russian."
+   "note_en": "The source page has the text of the question and answer in Russian.",
+   "media_url": "https://ummalife.com/upload/videos/2021/07/JNZfFjIl9OBuvVu5Xv2x_27_dd49a0903dc940d89cd33f16b56db611_video_240p_converted.mp4",
+   "media_type": "video"
   },
   "topics": [
    "god"

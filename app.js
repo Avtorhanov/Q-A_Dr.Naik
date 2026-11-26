@@ -67,6 +67,14 @@
       readAtSource: "Читать ответ в источнике", openBook: "Открыть книгу, стр. {p}", openBookNoPage: "Открыть книгу",
       listen: "Слушать в источнике", copy: "Скопировать ссылку", copied: "Ссылка скопирована", copyFail: "Не получилось скопировать. Ссылка: {u}",
       closePanel: "Закрыть", speed: "Скорость", fromTc: "с {tc}", fromStart: "с начала",
+      copyWhere: "копия", altCopy: "Другая копия", openHere: "Открыть страницу ролика здесь",
+      notOpened: "{a} не открылся здесь.", fellBack: "Показана копия с {b}.",
+      failTitle: "Этот ролик не получается показать внутри приложения.",
+      failHint: "Откройте его на сайте источника.", failHintApp: "Его можно открыть здесь же, на странице источника.",
+      yt100: "Ролик удалён или скрыт на YouTube.", yt150: "Владелец запретил показывать его в других приложениях и на сайтах.",
+      yt153: "YouTube не принял встроенный плеер.", ytOther: "Плеер YouTube сообщил об ошибке.",
+      fileErr: "Файл на сайте источника не открылся.", slow: "Не загружается?",
+      unavailable: "Ролик удалён из источника (проверено {d}).",
       srcLine: "Источник", openSource: "Открыть источник",
       sSource: "Источник", sWhere: "Где", sDate: "Дата", sAlso: "Также", sNote: "Пометка",
       uploaded: "опубликовано: {d}", page: "стр. {p}", qNo: "вопрос №{n} по порядку", qOf: "вопрос {n} из {t}", dur: "вся сессия: {d}",
@@ -150,6 +158,14 @@
       readAtSource: "Read the answer at the source", openBook: "Open the book, p. {p}", openBookNoPage: "Open the book",
       listen: "Listen at the source", copy: "Copy the link", copied: "Link copied", copyFail: "Could not copy. Link: {u}",
       closePanel: "Close", speed: "Speed", fromTc: "from {tc}", fromStart: "from the start",
+      copyWhere: "copy", altCopy: "Another copy", openHere: "Open the video page here",
+      notOpened: "{a} would not play here.", fellBack: "Showing the copy on {b}.",
+      failTitle: "This video can't be shown inside the app.",
+      failHint: "Open it on the source site.", failHintApp: "You can open it right here, on the source page.",
+      yt100: "The video was removed or made private on YouTube.", yt150: "Its owner does not allow it to be shown in other apps and sites.",
+      yt153: "YouTube refused the embedded player.", ytOther: "The YouTube player reported an error.",
+      fileErr: "The file on the source site did not open.", slow: "Not loading?",
+      unavailable: "The video has been removed from the source (checked {d}).",
       srcLine: "Source", openSource: "Open the source",
       sSource: "Source", sWhere: "Where", sDate: "Date", sAlso: "See also", sNote: "Note",
       uploaded: "uploaded: {d}", page: "p. {p}", qNo: "question no. {n} in order", qOf: "question {n} of {t}", dur: "whole session: {d}",
@@ -400,19 +416,64 @@
     return t("kindShort")[s.type] || "";
   }
 
-  // Что можно проиграть прямо в карточке: видео с YouTube / Rutube / OK или файл по прямой ссылке (source.media_url).
-  function mediaOf(r) {
-    var s = r.source, start = s.timecode ? secs(s.timecode) : 0, m, id;
-    if (s.media_url && /^https:\/\//i.test(s.media_url)) {
-      var audio = s.media_type ? s.media_type === "audio" : (/\.(mp3|m4a|aac|ogg|oga|opus|wav)([?#]|$)/i.test(s.media_url) || s.type === "audio_clip");
-      return { kind: audio ? "audio" : "video", src: s.media_url + (start ? "#t=" + start : ""), host: s.publisher || "", start: start };
+  // Плееры площадок, которые встраиваются в карточку
+  function embedOf(url, start) {
+    var u = String(url || ""), id = ytId(u), m, q;
+    if (id) {
+      q = "?autoplay=1&rel=0&playsinline=1&enablejsapi=1" + (start ? "&start=" + start : "");
+      try { if (location.protocol === "https:") q += "&origin=" + encodeURIComponent(location.origin); } catch (e) { /* ignore */ }
+      return { kind: "frame", host: "YouTube", yt: true, start: start, src: "https://www.youtube.com/embed/" + id + q };
     }
-    id = ytId(s.url);
-    if (id) return { kind: "frame", host: "YouTube", start: start, src: "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0&playsinline=1" + (start ? "&start=" + start : "") };
-    m = /rutube\.ru\/video\/([0-9a-f]{32})/i.exec(s.url || "");
+    m = /rutube\.ru\/(?:video|play\/embed|shorts)\/([0-9a-f]{32})/i.exec(u);
     if (m) return { kind: "frame", host: "Rutube", start: start, src: "https://rutube.ru/play/embed/" + m[1] + "/" + (start ? "?t=" + start : "") };
-    m = /ok\.ru\/video\/(\d+)/i.exec(s.url || "");
+    m = /ok\.ru\/video(?:embed)?\/(\d+)/i.exec(u);
     if (m) return { kind: "frame", host: "OK", start: start, src: "https://ok.ru/videoembed/" + m[1] + "?autoplay=1" + (start ? "&fromTime=" + start : "") };
+    return null;
+  }
+  // Файл по прямой ссылке на сайте источника (source.media_url): играет обычный плеер браузера
+  function fileOf(url, type, start, host, audioHint) {
+    if (!url || !/^https:\/\//i.test(url)) return null;
+    var audio = type ? type === "audio" : (/\.(mp3|m4a|aac|ogg|oga|opus|wav)([?#]|$)/i.test(url) || audioHint);
+    return { kind: audio ? "audio" : "video", src: url + (start ? "#t=" + start : ""), host: host || "", start: start };
+  }
+  function hostName(url) {
+    var m = /^https?:\/\/(?:www\.|m\.)?([^\/?#]+)/i.exec(String(url || ""));
+    return m ? m[1] : "";
+  }
+  // Все способы проиграть запись прямо в карточке, по порядку: файл источника, сама запись, копии из «Также».
+  // Если первый не открылся, плеер сам переходит к следующему.
+  function mediaList(r) {
+    var s = r.source, start = s.timecode ? secs(s.timecode) : 0, out = [], m;
+    var page = s.url_at_time || s.url;
+    var pub = String(s.publisher || "").replace(/\s*\(.*\)\s*$/, "") || hostName(s.url);
+    m = fileOf(s.media_url, s.media_type, start, pub, s.type === "audio_clip");
+    if (m) { m.page = page; out.push(m); }
+    if (s.status !== "unavailable") {
+      m = embedOf(s.url, start);
+      if (m) { m.page = page; out.push(m); }
+    }
+    (s.also || []).forEach(function (a) {
+      var c = fileOf(a.media_url, a.media_type, 0, hostName(a.url), false) || embedOf(a.url, 0);
+      if (c) { c.page = a.url; c.alt = true; out.push(c); }
+    });
+    return out;
+  }
+  function mediaOf(r) {
+    return mediaList(r)[0] || null;
+  }
+  // В Android-приложении страницу источника можно открыть во встроенном окне, не выходя из приложения
+  function canViewer() {
+    try { return !!(window.AndroidApp && typeof window.AndroidApp.openViewer === "function"); } catch (e) { return false; }
+  }
+  function openViewer(url) {
+    try { window.AndroidApp.openViewer(String(url)); return true; } catch (e) { return false; }
+  }
+  // Запись — ролик или аудио на странице источника, которую нельзя встроить (Дзен, Muslim Central)
+  function viewerKind(r) {
+    var s = r.source;
+    if (s.status === "unavailable" || !/^https:\/\//i.test(s.url || "") || /\.pdf([?#]|$)/i.test(s.url)) return null;
+    if (s.type === "video" || s.type === "lecture") return /muslimcentral|podm8/i.test(s.url) ? "audio" : "video";
+    if (s.type === "audio_clip") return "audio";
     return null;
   }
   function playerOn() {
@@ -433,17 +494,21 @@
 
   function actionsHtml(r) {
     var s = r.source, link = safeUrl(s.url_at_time || s.url), out = [], primary = false;
-    var m = playerOn() ? mediaOf(r) : null;
+    var m = playerOn() ? mediaOf(r) : null, vk = !m && canViewer() ? viewerKind(r) : null;
     if (m) {
-      var label = m.kind === "audio" ? t("listenHere") : (s.timecode ? t("watchHereFrom", { tc: s.timecode }) : t("watchHere"));
+      var label = m.kind === "audio" ? t("listenHere") : (s.timecode && !m.alt ? t("watchHereFrom", { tc: s.timecode }) : t("watchHere"));
       out.push('<button class="btn" type="button" data-act="play" data-id="' + esc(r.id) + '" aria-expanded="false">▶ ' + esc(label) + "</button>");
+      primary = true;
+    } else if (vk) {
+      // Android: страница источника откроется во встроенном окне приложения
+      out.push('<button class="btn" type="button" data-act="viewer" data-url="' + esc(link) + '">▶ ' + esc(vk === "audio" ? t("listenHere") : t("watchHere")) + "</button>");
       primary = true;
     }
     if (answerText(r)) {
       out.push('<button class="btn' + (primary ? " ghost" : "") + '" type="button" data-act="read" data-id="' + esc(r.id) + '" aria-expanded="false">' + esc(t("readHere")) + "</button>");
       primary = true;
     }
-    out.push('<a class="btn' + (primary ? " ghost" : "") + '" href="' + esc(link) + '" target="_blank" rel="noopener">' + esc(m ? t("atSource") : sourceLabel(r)) + " ↗</a>");
+    out.push('<a class="btn' + (primary ? " ghost" : "") + '" href="' + esc(link) + '" target="_blank" rel="noopener">' + esc(m || vk ? t("atSource") : sourceLabel(r)) + " ↗</a>");
     out.push('<button class="btn quiet icon" type="button" data-act="copy" data-id="' + esc(r.id) + '" aria-label="' + esc(t("copy")) + '" title="' + esc(t("copy")) + '">' +
       '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
       '<path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5"/></svg></button>');
@@ -486,6 +551,7 @@
     var o = origText(r);
     if (o) html += '<p class="orig" lang="' + esc(r.question_lang || "") + '">' + esc(o) + "</p>";
     html += actionsHtml(r);
+    if (s.status === "unavailable") html += '<p class="note warn">' + esc(t("unavailable", { d: fmtDate(s.checked || "") })) + "</p>";
     html += '<div class="player-slot"></div>';
     if (!answerText(r) && s.text_at_source && (opt.top || opt.note)) {
       html += '<p class="note">' + esc(t("textAtSource")) + "</p>";
@@ -498,29 +564,113 @@
   /* ------------------------------------------------------------------ */
   /* Плеер и читалка внутри карточки                                      */
   /* ------------------------------------------------------------------ */
-  function barHtml(r, where) {
-    var link = safeUrl(r.source.url_at_time || r.source.url);
+  function barHtml(r, where, link, alt) {
+    link = safeUrl(link || r.source.url_at_time || r.source.url);
     return '<div class="media-bar"><span class="where">' + esc(where) + "</span>" +
+      (alt ? '<button class="alt" type="button" data-act="alt">' + esc(t("altCopy")) + "</button>" : "") +
       '<a href="' + esc(link) + '" target="_blank" rel="noopener">' + esc(t("atSource")) + " ↗</a>" +
       '<button class="x" type="button" data-act="close-panel" aria-label="' + esc(t("closePanel")) + '">✕</button></div>';
   }
-  function playerHtml(r) {
-    var m = mediaOf(r), s = r.source, title = esc(s.title || "");
-    var where = (m.host ? m.host + ", " : "") + (s.timecode ? t("fromTc", { tc: s.timecode }) : t("fromStart"));
+  var frameSeq = 0;
+  function playerHtml(r, idx, note) {
+    var list = mediaList(r), m = list[idx] || list[0], s = r.source, title = esc(s.title || "");
+    var where = (m.host ? m.host + ", " : "") + (m.alt ? t("copyWhere") : (s.timecode ? t("fromTc", { tc: s.timecode }) : t("fromStart")));
+    var more = idx + 1 < list.length;
+    var head = note ? '<p class="media-note">' + esc(note) + "</p>" : "";
     if (m.kind === "audio") {
       var rates = [1, 1.25, 1.5, 2].map(function (x) {
         return '<button type="button" data-act="rate" data-rate="' + x + '" aria-pressed="' + (x === 1) + '">' + String(x).replace(".", state.lang === "ru" ? "," : ".") + "×</button>";
       }).join("");
-      return '<div class="media"><div class="media-audio"><audio controls preload="metadata" src="' + esc(m.src) + '"></audio>' +
-        '<div class="speeds"><span>' + esc(t("speed")) + "</span>" + rates + "</div></div>" + barHtml(r, where) + "</div>";
+      return '<div class="media">' + head + '<div class="media-audio"><audio controls preload="metadata" src="' + esc(m.src) + '"></audio>' +
+        '<div class="speeds"><span>' + esc(t("speed")) + "</span>" + rates + "</div></div>" + barHtml(r, where, m.page, more) + "</div>";
     }
     if (m.kind === "video") {
-      return '<div class="media"><div class="frame"><video controls playsinline preload="metadata" src="' + esc(m.src) + '"></video></div>' + barHtml(r, where) + "</div>";
+      return '<div class="media">' + head + '<div class="frame"><video controls playsinline preload="metadata" src="' + esc(m.src) + '"></video></div>' + barHtml(r, where, m.page, more) + "</div>";
     }
-    return '<div class="media"><div class="frame"><iframe src="' + esc(m.src) + '" title="' + title +
+    return '<div class="media">' + head + '<div class="frame"><iframe id="qa-frame-' + (++frameSeq) + '"' + (m.yt ? ' data-yt="1"' : "") + ' src="' + esc(m.src) + '" title="' + title +
       '" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>' +
-      barHtml(r, where) + "</div>";
+      barHtml(r, where, m.page, more) + "</div>";
   }
+  // Ни один способ не сработал: объяснить и дать открыть страницу источника
+  function failHtml(r, m, reason) {
+    var page = (m && m.page) || r.source.url_at_time || r.source.url, app = canViewer();
+    return '<div class="media"><div class="media-fail" role="status"><p><b>' + esc(t("failTitle")) + "</b> " + (reason ? esc(reason) + " " : "") +
+      esc(app ? t("failHintApp") : t("failHint")) + '</p><div class="actions">' +
+      (app ? '<button class="btn" type="button" data-act="viewer" data-url="' + esc(safeUrl(page)) + '">▶ ' + esc(t("openHere")) + "</button>" : "") +
+      (app ? "" : '<a class="btn" href="' + esc(safeUrl(page)) + '" target="_blank" rel="noopener">' + esc(t("atSource")) + " ↗</a>") +
+      '<button class="btn quiet" type="button" data-act="close-panel">' + esc(t("closePanel")) + "</button></div></div></div>";
+  }
+  function ytReason(code) {
+    code = Number(code);
+    if (code === 100) return t("yt100");
+    if (code === 101 || code === 150) return t("yt150");
+    if (code === 152 || code === 153) return t("yt153");
+    return t("ytOther");
+  }
+  // Поставить в слот вариант номер idx и следить, откроется ли он
+  function mountPlayer(slot, r, idx, note) {
+    silence(slot);
+    slot.setAttribute("data-idx", String(idx));
+    slot.innerHTML = playerHtml(r, idx, note);
+    void slot.offsetHeight;
+    var av = slot.querySelector("audio, video");
+    if (av) {
+      av.addEventListener("error", function () { if (av.isConnected) mediaFailed(slot, r, t("fileErr")); });
+      try { var p = av.play(); if (p && p.catch) p.catch(function () { /* запустит пользователь */ }); } catch (e) { /* ignore */ }
+    }
+    var fr = slot.querySelector("iframe[data-yt]");
+    if (fr) watchYouTube(slot, fr);
+  }
+  // Текущий вариант не открылся: перейти к следующему или показать, что делать
+  function mediaFailed(slot, r, reason) {
+    if (slot.getAttribute("data-kind") !== "play") return;
+    var list = mediaList(r), idx = parseInt(slot.getAttribute("data-idx") || "0", 10) || 0, cur = list[idx];
+    if (idx + 1 < list.length) {
+      mountPlayer(slot, r, idx + 1, (reason || t("notOpened", { a: (cur && cur.host) || "" })) + " " + t("fellBack", { b: list[idx + 1].host }));
+      return;
+    }
+    silence(slot);
+    slot.innerHTML = failHtml(r, cur, reason);
+  }
+  /* YouTube сообщает об ошибке плеера (ролик удалён, запрещено встраивание) через postMessage.
+     Чтобы он начал присылать события, ему нужно отправить «listening». */
+  function watchYouTube(slot, fr) {
+    var tries = 0;
+    var hello = function () {
+      if (!fr.isConnected || fr._ytOk) return;
+      try { fr.contentWindow.postMessage(JSON.stringify({ event: "listening", id: fr.id, channel: "widget" }), "*"); } catch (e) { /* ignore */ }
+      if (++tries < 30) setTimeout(hello, 400);
+    };
+    fr.addEventListener("load", function () { tries = 0; hello(); });
+    hello();
+    // Плеер молчит: возможно, YouTube не открывается в этой сети. Показать подсказку, плеер не убирать.
+    setTimeout(function () {
+      if (!fr.isConnected || fr._ytOk || slot.querySelector(".media-slow")) return;
+      var bar = slot.querySelector(".media-bar"), link = bar && bar.querySelector("a");
+      if (!bar || !link) return;
+      var alt = bar.querySelector('[data-act="alt"]');
+      bar.insertAdjacentHTML("beforebegin", '<p class="media-note media-slow">' + esc(t("slow")) + " " +
+        (alt ? '<button type="button" data-act="alt">' + esc(t("altCopy")) + "</button> " : "") +
+        (canViewer() ? '<button type="button" data-act="viewer" data-url="' + esc(safeUrl(link.href)) + '">' + esc(t("openHere")) + "</button>"
+          : '<a href="' + esc(safeUrl(link.href)) + '" target="_blank" rel="noopener">' + esc(t("atSource")) + " ↗</a>") + "</p>");
+    }, 15000);
+  }
+  window.addEventListener("message", function (ev) {
+    if (!/^https:\/\/www\.youtube(-nocookie)?\.com$/.test(String(ev.origin))) return;
+    var data = ev.data;
+    if (typeof data === "string") { try { data = JSON.parse(data); } catch (e) { return; } }
+    if (!data || !data.event) return;
+    var fr = all("iframe[data-yt]").filter(function (f) { return f.contentWindow === ev.source; })[0];
+    if (!fr) return;
+    fr._ytOk = true;
+    var slow = fr.closest(".media") && fr.closest(".media").querySelector(".media-slow");
+    if (slow) slow.parentNode.removeChild(slow);
+    if (data.event === "onError") {
+      var slot = fr.closest(".player-slot"), card = slot && slot.closest(".card");
+      var r = card ? recById(card.getAttribute("data-rec")) : null;
+      if (slot && r) mediaFailed(slot, r, ytReason(data.info));
+    }
+  });
   function readerHtml(r) {
     var a = answerText(r), s = r.source, link = safeUrl(s.url_at_time || s.url);
     var bits = [s.title, s.publisher, s.date].filter(Boolean).join(", ");
@@ -560,10 +710,7 @@
       // Плеер ставится сразу во всю величину, без анимации: в iOS Safari iframe, вставленный
       // в сворачивающуюся (нулевую, обрезанную, полупрозрачную) обёртку, не прорисовывается,
       // пока приложение не свернуть и не открыть снова.
-      slot.innerHTML = playerHtml(r);
-      void slot.offsetHeight;
-      var av = slot.querySelector("audio, video");
-      if (av) { try { var p = av.play(); if (p && p.catch) p.catch(function () { /* запустит пользователь */ }); } catch (e) { /* ignore */ } }
+      mountPlayer(slot, r, 0);
       showPlayer(slot);
       return;
     }
@@ -880,6 +1027,11 @@
     else if (act === "copy" && r) copyLink(r);
     else if ((act === "play" || act === "read") && r) openPanel(el.closest(".card"), r, act);
     else if (act === "close-panel") closePanel(el.closest(".card"));
+    else if (act === "viewer") { if (!openViewer(el.getAttribute("data-url"))) window.open(el.getAttribute("data-url"), "_blank", "noopener"); }
+    else if (act === "alt") {
+      var aslot = el.closest(".player-slot"), acard = el.closest(".card"), ar = acard && recById(acard.getAttribute("data-rec"));
+      if (aslot && ar) { var ai = (parseInt(aslot.getAttribute("data-idx") || "0", 10) || 0) + 1; if (ai < mediaList(ar).length) mountPlayer(aslot, ar, ai); }
+    }
     else if (act === "rate") {
       var box = el.closest(".media-audio"), au = box && box.querySelector("audio");
       if (au) au.playbackRate = Number(el.getAttribute("data-rate")) || 1;
